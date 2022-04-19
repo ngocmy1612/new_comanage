@@ -634,121 +634,13 @@ def scrum_project(admin_account):
     
     return project1
 
-def new_work():
-    driver.find_element_by_xpath("//ul[@id='myTab5']/li/a[contains(.,'Backlog')]").click()
-    
-    count_sprint = int(len(driver.find_elements_by_xpath("//div[@class='sprint-right']//div[@class='sprint-container']/div")))
-    if count_sprint > 2:
-        print("Đã có sẵn sprint")
-        try:
-            start_sprint = driver.find_element_by_xpath("//div[@class='sprint-right']//div[@class='sprint-container']/div[2]//div[@class='sprint-header-action']//button[text()='Start Sprint']")
-            driver.find_element_by_xpath("//div[@class='sprint-header-action']//button[contains(.,'Start Sprint')]").click()
-            print("- Start Sprint")
-            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='dialog-footer']/button[contains(.,'OK')]"))).click()
-            time.sleep(3)
-
-            name_work = "Automation Test of Scrum: " + str(n)
-            driver.find_element_by_xpath("//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div[@class='sprint-add-more']/button").click()
-            add_work = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='sprint-add-more']//input")))
-            add_work.send_keys(name_work)
-            add_work.send_keys(Keys.ENTER)
-
-            add_work_done = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-            print("=> Add new work successfully")
-            time.sleep(3)
-
-            source1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-            target1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-works-empty')]/div/span")))
-            action = ActionChains(driver)
-            action.click_and_hold(source1).move_to_element(target1).move_by_offset(0, -100).release().perform()
-            time.sleep(2)
-            source2 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'"+ str(sprint_name) +"')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-            source2.click()
-            print("- View work at Sprint")
-            time.sleep(2)
-            
-            update_work()
-        except:
-            name_work = "Automation Test of Scrum: " + str(n)
-            driver.find_element_by_xpath("//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div[@class='sprint-add-more']/button").click()
-            add_work = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='sprint-add-more']//input")))
-            add_work.send_keys(name_work)
-            add_work.send_keys(Keys.ENTER)
-
-            add_work_done = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-            print("=> Add new work successfully")
-            time.sleep(3)
-
-            add_work_done = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-            print("=> Add new work successfully")
-            time.sleep(3)
-
-            source1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-            target1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-works-empty')]/div/span")))
-            action = ActionChains(driver)
-            action.click_and_hold(source1).move_to_element(target1).move_by_offset(0, -100).release().perform()
-            time.sleep(2)
-            source2 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'"+ str(sprint_name) +"')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-            source2.click()
-            print("- View work at Sprint")
-            time.sleep(2)
-            
-            update_work()
-
-    elif count_sprint == 2:
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='sprint-add-more']//button[contains(.,'Create sprint')]"))).click()
-        print("- Create sprint")
-        sprint_name = "Sprint: " + str(n)
-        input_sprint_name = driver.find_element_by_xpath("//div[@class='sprint-add-more']//input")
-        input_sprint_name.send_keys(sprint_name)
-        driver.find_element_by_xpath("//div[@class='sprint-add-more']//button[contains(.,'Save')]").click()
-        print("- Save Sprint")
-        driver.find_element_by_xpath("//div[@class='sprint-header-action']//button[contains(.,'Start Sprint')]").click()
-        print("- Start Sprint")
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='dialog-footer']/button[contains(.,'OK')]"))).click()
-        time.sleep(3)
-
-        name_work = "Automation Test of Scrum: " + str(n)
-        driver.find_element_by_xpath("//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div[@class='sprint-add-more']/button").click()
-        add_work = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='sprint-add-more']//input")))
-        add_work.send_keys(name_work)
-        add_work.send_keys(Keys.ENTER)
-
-        add_work_done = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-        print("=> Add new work successfully")
-        time.sleep(3)
-        
-        
-
-        source1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-        target1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-works-empty')]/div/span")))
-        action = ActionChains(driver)
-        action.click_and_hold(source1).move_to_element(target1).move_by_offset(0, -100).release().perform()
-        time.sleep(2)
-        source2 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'"+ str(sprint_name) +"')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-        source2.click()
-        print("- View work at Sprint")
-        time.sleep(2)
-        
-        update_work()
-
-
-
-
-
-def drag_work():
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='sprint-add-more']//button[contains(.,'Create sprint')]"))).click()
-    print("- Create sprint")
-    sprint_name = "Sprint: " + str(n)
-    input_sprint_name = driver.find_element_by_xpath("//div[@class='sprint-add-more']//input")
-    input_sprint_name.send_keys(sprint_name)
-    driver.find_element_by_xpath("//div[@class='sprint-add-more']//button[contains(.,'Save')]").click()
-    print("- Save Sprint")
+def startsprint():
     driver.find_element_by_xpath("//div[@class='sprint-header-action']//button[contains(.,'Start Sprint')]").click()
     print("- Start Sprint")
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='dialog-footer']/button[contains(.,'OK')]"))).click()
     time.sleep(3)
 
+def addwork(sprint_name):
     name_work = "Automation Test of Scrum: " + str(n)
     driver.find_element_by_xpath("//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div[@class='sprint-add-more']/button").click()
     add_work = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='sprint-add-more']//input")))
@@ -758,11 +650,9 @@ def drag_work():
     add_work_done = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
     print("=> Add new work successfully")
     time.sleep(3)
-    
-    
 
     source1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-    target1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-works-empty')]/div/span")))
+    target1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='sprint'][1]//div[contains(@class,'sprint-works')]")))
     action = ActionChains(driver)
     action.click_and_hold(source1).move_to_element(target1).move_by_offset(0, -100).release().perform()
     time.sleep(2)
@@ -773,12 +663,31 @@ def drag_work():
     
     update_work()
 
-#test again
+def new_work():
+    driver.find_element_by_xpath("//ul[@id='myTab5']/li/a[contains(.,'Backlog')]").click()
+    
+    count_sprint = int(len(driver.find_elements_by_xpath("//div[@class='sprint-right']//div[@class='sprint-container']/div")))
+    if count_sprint > 2:
+        get_name_sprint = driver.find_element_by_xpath("//div[@class='sprint'][1]//div[@class='sprint-header-title']//strong")
+        sprint_name = get_name_sprint.text
+        try:
+            start_sprint = driver.find_element_by_xpath("//div[@class='sprint-right']//div[@class='sprint-container']/div[2]//div[@class='sprint-header-action']//button[text()='Start Sprint']")
+            startsprint()
+            addwork(sprint_name)
+        except:
+            addwork(sprint_name)
 
-
-
-#Trương Mỹ Ngọc test diff
-
+    elif count_sprint == 2:
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='sprint-add-more']//button[contains(.,'Create sprint')]"))).click()
+        print("- Create sprint")
+        sprint_name = "Sprint: " + str(n)
+        input_sprint_name = driver.find_element_by_xpath("//div[@class='sprint-add-more']//input")
+        input_sprint_name.send_keys(sprint_name)
+        driver.find_element_by_xpath("//div[@class='sprint-add-more']//button[contains(.,'Save')]").click()
+        print("- Save Sprint")
+        startsprint()
+        addwork(sprint_name)
+        
 
 
 

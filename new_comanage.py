@@ -18,6 +18,7 @@ n = random.randint(1,1000)
 m = random.randint(1,10000)
 
 domain_hr = "global3.hanbiro.com/ncomanage"
+folder_name = "QA Team"
 
 chrome_path = os.path.dirname(Path(__file__).absolute())+"\\chromedriver.exe"
 json_file = os.path.dirname(Path(__file__).absolute())+"\\MN_groupware_auto.json"
@@ -136,7 +137,7 @@ def run_project(admin_account):
     project1 = scrum_project(admin_account)
     if project1 == True:
         new_work()
-
+        add_folder(folder_name)
     
     else:
         pass
@@ -688,6 +689,51 @@ def new_work():
         startsprint()
         addwork(sprint_name)
         
+def add_folder(folder_name):
+    search_folder = driver.find_element_by_xpath("//div[@class='content-search']//input")
+    search_folder.send_keys(folder_name)
+    search_folder.send_keys(Keys.ENTER)
+    try:
+        default_folder = driver.find_element_by_xpath("//div[@class='han-tree-folder']/a/span[contains(.,'" + str(folder_name) + "')]")
+        if default_folder.is_displayed():
+            default_folder.click()
+            print("- Folder was already")
+    except:
+        driver.find_element_by_xpath("//div[contains(@class,'co-manage-project-list-left-menu')]//a[contains(.,'Add Folder')]").click()
+        driver.find_element_by_xpath("//div[@id='wrap-content-project']//li[@class='button-group']/button").click()
+        print("- Click button plus")
+        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@id='alert-dialog-title']")))
+        
+        subject = driver.find_element_by_xpath("//input[@placeholder='Subject']")
+        subject.send_keys(folder_name)
+        driver.find_element_by_xpath("//button[contains(.,'Confirm')]").click()
+        print("- Save folder")
+        time.sleep(2)
+        default_folder = driver.find_element_by_xpath("//div[@class='han-tree-folder']/a/span[contains(.,'" + str(folder_name) + "')]")
+        default_folder.click()
+        print("=> Add folder successfully")
+
+def add_project(folder_name):
+    driver.find_element_by_xpath("//*[@id='wrap-content-project']//div[@class='content-table']/div[1]//input").click()
+    project1 = driver.find_element_by_xpath("//*[@id='wrap-content-project']//div[@class='content-table']/div[1]//div[@class='column'][3]//a")
+    project1_name = project1.text
+
+    print("- Select project")
+    driver.find_element_by_xpath("//*[@id='wrap-content-project']//li[@class='button-group'][3]").click()
+    select_folder = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='alert-dialog-title']/following-sibling::div//a/span[contains(.,"+ str(folder_name) +")]")))
+    time.sleep(2)
+    select_folder.click()
+    print("- Select folder")
+    driver.find_element_by_xpath("//button[text()='Confirm']").click()
+    print("- Confirm select folder")
+    time.sleep(3)
+
+    folder_name_project1 = driver.find_element_by_xpath("//*[@id='wrap-content-project']//div[@class='content-table']/div[1]//div[@class='column'][8]/div")
+    if folder_name_project1.text == folder_name:
+        print(">> Add project to folder Successfully")
+    else:
+        print(">> Add project to folder Fail")
+
 
 
 

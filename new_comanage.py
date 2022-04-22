@@ -696,8 +696,9 @@ def add_folder(folder_name):
     try:
         default_folder = driver.find_element_by_xpath("//div[@class='han-tree-folder']/a/span[contains(.,'" + str(folder_name) + "')]")
         if default_folder.is_displayed():
-            default_folder.click()
             print("- Folder was already")
+            driver.find_element_by_xpath("//a//span[contains(.,'All Projects')]").click()
+            add_project(folder_name)
     except:
         driver.find_element_by_xpath("//div[contains(@class,'co-manage-project-list-left-menu')]//a[contains(.,'Add Folder')]").click()
         driver.find_element_by_xpath("//div[@id='wrap-content-project']//li[@class='button-group']/button").click()
@@ -709,18 +710,19 @@ def add_folder(folder_name):
         driver.find_element_by_xpath("//button[contains(.,'Confirm')]").click()
         print("- Save folder")
         time.sleep(2)
-        default_folder = driver.find_element_by_xpath("//div[@class='han-tree-folder']/a/span[contains(.,'" + str(folder_name) + "')]")
-        default_folder.click()
+        driver.find_element_by_xpath("//a//span[contains(.,'All Projects')]").click()
+        add_project(folder_name)
         print("=> Add folder successfully")
 
 def add_project(folder_name):
-    driver.find_element_by_xpath("//*[@id='wrap-content-project']//div[@class='content-table']/div[1]//input").click()
+    time.sleep(5)
+    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH,"//*[@id='wrap-content-project']//div[@class='content-table']/div[1]/div/div[contains(@class,'custom-checkbox')]"))).click()
     project1 = driver.find_element_by_xpath("//*[@id='wrap-content-project']//div[@class='content-table']/div[1]//div[@class='column'][3]//a")
     project1_name = project1.text
 
     print("- Select project")
     driver.find_element_by_xpath("//*[@id='wrap-content-project']//li[@class='button-group'][3]").click()
-    select_folder = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='alert-dialog-title']/following-sibling::div//a/span[contains(.,"+ str(folder_name) +")]")))
+    select_folder = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='alert-dialog-title']/following-sibling::div//a/span[contains(.,'"+ str(folder_name) +"')]")))
     time.sleep(2)
     select_folder.click()
     print("- Select folder")

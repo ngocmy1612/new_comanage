@@ -138,7 +138,7 @@ def run_project(admin_account):
     if project1 == True:
         new_work()
         add_folder(folder_name)
-    
+        delete_folder(folder_name)
     else:
         pass
     
@@ -721,6 +721,7 @@ def add_project(folder_name):
     project1_name = project1.text
 
     print("- Select project")
+    time.sleep(3)
     driver.find_element_by_xpath("//*[@id='wrap-content-project']//li[@class='button-group'][3]").click()
     select_folder = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='alert-dialog-title']/following-sibling::div//a/span[contains(.,'"+ str(folder_name) +"')]")))
     time.sleep(2)
@@ -730,12 +731,23 @@ def add_project(folder_name):
     print("- Confirm select folder")
     time.sleep(3)
 
-    folder_name_project1 = driver.find_element_by_xpath("//*[@id='wrap-content-project']//div[@class='content-table']/div[1]//div[@class='column'][8]/div")
+    folder_name_project1 = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH,"//*[@id='wrap-content-project']//div[@class='content-table']/div[1]//div[@class='column'][8]/div")))
+    time.sleep(2)
     if folder_name_project1.text == folder_name:
         print(">> Add project to folder Successfully")
     else:
         print(">> Add project to folder Fail")
 
+def delete_folder(folder_name):
+    time.sleep(3)
+    driver.find_element_by_xpath("//div[contains(@class,'co-manage-project-list-left-menu')]//a[contains(.,'Add Folder')]").click()
+    delete_fol = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@id='wrap-content-project']//div[@data-type='SplitPane']//div[@class='bd-b' and contains(.,'"+ str(folder_name) +"')]//button[2]")))
+    time.sleep(2)
+    delete_fol.click()
+    print("- Delete Folder")
+    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@aria-labelledby,'alert-dialog-title')]//button[text()='Confirm']"))).click()
+    print("- Confirm delete folder")
+    
 
 
 

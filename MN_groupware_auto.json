@@ -1938,21 +1938,229 @@
         "new_comanage":{
             "create_project":{
                 "pass":{
-                    "menu": "New Comanage",
-                    "sub_menu": "Kanban",
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
                     "testcase": "Create Kanban project",
                     "status": "Pass",
                     "description": "Create Kanban project successfully",
                     "tester": "Ngoc"
                 },
                 "fail":{
-                    "menu": "New Comanage",
-                    "sub_menu": "Kanban",
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
                     "testcase": "Create Kanban project",
                     "status": "Fail",
                     "description": "Create Kanban project fail",
                     "tester": "Ngoc"
                 } 
+            },
+            "view_work":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "View work",
+                    "status": "Pass",
+                    "description": "View work Successfully => Show pop up detail",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "View work",
+                    "status": "Fail",
+                    "description": "View work Fail => No pop up display",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "insert_work":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Insert work",
+                    "status": "Pass",
+                    "description": "Insert work Successfully => Find new work after search",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Insert work",
+                    "status": "Fail",
+                    "description": "Insert work Fail => No new work after search",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "search_work":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Search work",
+                    "status": "Pass",
+                    "description": "Search work Successfully => Find correct work after search",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Search work",
+                    "status": "Fail",
+                    "description": "Search work Fail => No work or wrong work after search",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "update_status":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update status",
+                    "status": "Pass",
+                    "description": "Update status Successfully => Show correct status with selected state",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update status",
+                    "status": "Fail",
+                    "description": "Update status Fail => Show wrong status with selected state",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "update_work_type":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update work type",
+                    "status": "Pass",
+                    "description": "Update work type Successfully => Show correct work type with selected type",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update work type",
+                    "status": "Fail",
+                    "description": "Update work type Fail => Show wrong work type with selected type",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "update_assigned_to":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update assigned to",
+                    "status": "Pass",
+                    "description": "Update assigned to Successfully => Show correct assigned to with selected assign",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update assigned to",
+                    "status": "Fail",
+                    "description": "Update assigned to Fail => Show wrong assigned to with selected assign",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "update_priority":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update priority",
+                    "status": "Pass",
+                    "description": "Update priority Successfully => Show correct priority with selected priority",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update priority",
+                    "status": "Fail",
+                    "description": "Update priority Fail => Show wrong priority with selected priority",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "write_comment":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Write comment",
+                    "status": "Pass",
+                    "description": "Write comment Successfully => Comments are displayed in the comments section",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Write comment",
+                    "status": "Fail",
+                    "description": "Write comment Fail => No comments display in the comments section",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "filters_work_type":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Filter work type",
+                    "status": "Pass",
+                    "description": "Filter work type Successfully => Show correct work type after filter",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Filter work type",
+                    "status": "Fail",
+                    "description": "Filter work type Fail => Show wrong work type after filter",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "view_work_list":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "View work list",
+                    "status": "Pass",
+                    "description": "View work list Successfully => Show detail of work",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "View work list",
+                    "status": "Fail",
+                    "description": "View work list Fail => Don't show detail of work",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "sub-work":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Add Sub work",
+                    "status": "Pass",
+                    "description": "Add Sub work Successfully => Sub work display in Sub work list",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Add Sub work",
+                    "status": "Fail",
+                    "description": "Add Sub work Fail => No Sub work display in Sub work list",
+                    "tester": "Ngoc"
+                }
             }
         }
     }

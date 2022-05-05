@@ -1,0 +1,1959 @@
+{
+    "domain_name": "http://global3.hanbiro.com",
+
+    "user_name": "automationtest",
+    "name_keyword": [
+        "automationtest",
+        "automationtest2"
+    ],
+    "user_password": "automationtest1!",
+    "submit_login": "//button[@id='btn-log']",
+    "turn_off": "//button[@class='btn btn-primary bootbox-accept']",
+
+    "reload_button": "//split-screen-view//div[@class='page-header']//button[1]",
+    "write_button": [
+        "//split-screen-view//div[@class='page-header']//button[2]",
+        "//expense-admin-container-view//div[@class='page-header']//button[2]",
+        "//*[@id='ngw.projectnew.project']/div/div[1]/div[2]/div/button[2]"
+    ],
+
+    "auto_save_all": "//h4[@class='ui-pnotify-title']//a[2]/i",
+
+    "loading_dialog": "//div[@class='loading-dialog hide']",
+
+    "TASK":{
+        "Work_Diary":{
+            "button_save":[
+                "//*[@id='getJournalShare']/div/div/div[3]/button",
+                "//*[@id='diary_setting_form']/div[2]/div[3]/button[1]",
+                "//button[contains(@data-ng-click,'saveForm()')]"
+            ],
+        
+            "menu_task": "//div[@id='main-navi']/nav-menu-react/nav/a[contains(@data-name, 'task,Task')]/span",
+            "setting_workdiary": "//span[contains(.,'Settings ')]",
+            "folder_name": "Folder work diary: ",
+            "input_folder_name": "//*[@id='form_add_folder']/div[3]/div/input",
+            "input_share_name": "//*[@id='form_add_folder']/div[5]/div/input",
+            "share": "//form[@id='form_add_folder']/div[7]/div/label/span",
+            "permit_write": "//form[@id='form_add_folder']/div[9]/div/label[2]/span[2]",
+            "invite_user": "//*[@id='form_add_folder']/div[11]/label/a",
+            "list_ORG": "//*[@id='getJournalShare']/div/div/div[2]/div[1]/div[2]/div/div/ul",
+            "user_keyword": "//*[@id='getJournalShare']//div[@class='nav-search']//span//input",
+            "user_1": "//*[@id='getJournalShare']//a[contains(text(),'Selenium/AutomationTest1')]",
+            "user_2": "//*[@id='getJournalShare']//a[contains(text(),'Selenium/AutomationTest2')]",
+            "plus_button": "//*[@id='getJournalShare']/div/div/div[2]/div[2]/div[1]/div/a[1]",
+            "notify_save": "//h4[contains(.,' Saved')]",
+            "reload_folder": "//*[@id='diary_setting_form']/div[1]/div[1]/div[2]/a[3]",
+            "delete_button": "//*[@id='diary_setting_form']/div[1]/div[1]/div[2]/a[2]",
+            "last_list_folder": "//*[@id='diary-tree-folder']/ul/li/ul/li[@class='dynatree-lastsib']",
+            "fol_name": "//*[@id='diary-tree-folder']/ul/li/ul/li/span/a[contains(.,'",
+            "hidden_workdiary": "//*[@id='task-journal-parent']/b"
+        },
+
+        "Task_Report":{
+            "open_taskreport": "//*[@id='task-report-parent']/b",
+            "folder_task_name": [
+                "//*[@id='ngw.task.reportsetting']/div/div/div[2]/div/div[2]/div[2]/div/form/div[2]/div/input",
+                "//*[@id='ngw.task.setting']/div/div/div[2]/div/div[2]/div[2]/div/form/div[2]/div/input"
+            ],
+            "folder_task": "Folder task report: ",
+            "notify_save": "//h4[contains(.,' Saved')]",
+            "reload_folder": "//*[@id='ngw.task.reportsetting']/div/div/div[2]/div/div[1]/div[1]/div[3]/a[3]",
+            "delete_button": "//*[@id='ngw.task.reportsetting']/div/div/div[2]/div/div[1]/div[1]/div[3]/a[2]",
+            "last_list_folder": "//*[@id='report-tree-folder']/ul/li/ul/li[@class='dynatree-lastsib']",
+            "fol_name": "//*[@id='report-tree-folder']/ul/li/ul/li/span/a[contains(.,'",
+            
+            "set_recipients": "//li[2]/ul/li[2]/ul/li[2]/a/span/span",
+            "add_button":[
+                 "//div[@id='report-recipient']/form/div/a/span",
+                 "//a[@id='add-button']/span"
+                ],
+            "name_group": "Recipient Group: ",
+            "recipients_group": "//*[@id='new-report-sort']/div[1]/div/input",
+            "recipients_ORG": "//div[3]/label/a",
+            "list_ORG": "//*[@id='getReportTargetList']/div/div/div[2]/div[1]/div[2]/div/div/ul",
+            "user_keyword": "//*[@id='getReportTargetList']//div[@class='nav-search']//span//input",
+            "user_1": "//*[@id='getReportTargetList']//a[contains(text(),'Selenium/AutomationTest1')]",
+            "user_2": "//*[@id='getReportTargetList']//a[contains(text(),'Selenium/AutomationTest2')]",
+            "plus_button": "//*[@id='getReportTargetList']/div/div/div[2]/div[2]/div[1]/div/a[1]",
+            "button_save": [
+                "//*[@id='getReportTargetList']/div/div/div[3]/button[1]",
+                "//*[@id='new-report-sort']/div[4]/button",
+                "//button[contains(.,' Save')]"
+            ],
+            "recipients_add": "//*[@id='new-report-sort']//ul",
+            "button_OK": "//*[contains(@ng-click, 'close($event)')]//button[contains(@ng-click, 'ok()')]",
+
+            "my_task_report": "//li[2]/ul/li/ul/li/a/span/span",
+            "wait_editor": "//han-editor/div[3]/div/div/div[2]/div",
+            "input_title": "//*[@id='report-form-write']/div[1]/div/input",
+            "task_title": "Task Report: ",
+            "task_content": "This is content of Task Report",
+            "recipients": "//*[@id='report-form-write']/div[6]/div/select",
+            "recipients_default": "//*[@id='report-form-write']//ul",
+            "organization": "//*[@id='report-form-write']/div[6]/label/a",
+        
+            "auto_sort": "//li[2]/ul/li[3]/a[contains(@href, '#task/report/autosort')]/span",
+            "input_word": "//*[@id='new-report-sort']/form/div[1]/input",
+            "word_sort": "Task Report",
+            "delete_auto": "//*[@id='report-autosort']//a//span[contains(.,' Delete')]"
+        }
+    },
+    
+    "CIRCULAR":{
+        "menu_circular": "//div[@id='main-navi']/nav-menu-react/nav/a[@class='nt btn-circular']",
+        "add_folder": "//*[@id='ngw.circular.container']//circular-setting-component/form//div[@class='form-horizontal']",
+        "folder_name": "//*[@id='ngw.circular.container']//circular-setting-component/form//input[@name='folder_name']",
+        "parent_folder": "Parent Folder: ",
+        "button_save": "//*[@id='ngw.circular.container']/list-view//circular-setting-component/form/div[2]/div[3]/button",
+        "button_OK": "//button[contains(., 'OK')]",
+        "delete_button": "//*[@id='ngw.circular.container']/list-view//circular-setting-component/form/div[1]/div[1]/div[2]/a[2]"
+        
+    },
+
+    "EXPENSE":{
+        "menu_expense": "//div[@id='main-navi']/nav-menu-react/nav/a[@class='nt btn-expense']",
+        "button_save": [
+            "//*[@id='getManagerList']/div/div/div[3]/button[1]",
+            "//*[@id='ngw.expense.paymentMethod']//button/span[text()='Save']"
+        ],
+
+        "SETTINGS":{
+            "settings_expense": "//a[contains(@href, '/expense/setting')]",
+            "parent_folder": "Parent Folder: ",
+            "folder_name": "//*[@id='writeFolder']/div[3]/div/input",
+            "button_OK":[
+                "//span[contains(., 'OK')]",
+                "//*[contains(@ng-click, 'close($event)')]//button[contains(@ng-click, 'ok()')]"
+            ],
+            "last_list_folder": "//*[@id='ngw.expense.setting']//ul/li/ul/li/span/a[contains(text(),'",
+            "delete_button": "//*[@id='ngw.expense.setting']/div/div[2]/div[1]/div[1]/div/a[3]"
+        },
+        
+        "ADMIN":{
+            "admin": "//*[starts-with(@id,'mCSB') and contains(@id,'container')]//a[@data-ng-click='showAdminSetting()']/b",
+            "set_manager": "//span[contains(.,'Set Manager')]",
+            "select_manager": "//*[@id='expense-form-write']/div/label/button",
+            "total_list": "//*[@id='ngw.expense.paymentMethod']/expense-admin-container-view//div[@class='pull-left']",
+            "list_ORG": "//*[@id='getManagerList']/div/div/div[2]/div[1]/div[2]/div/div/ul",
+            "user_keyword": "//*[@id='getManagerList']//div[@class='nav-search']//span//input",
+            "user_1": "//*[@id='getManagerList']//a[contains(text(),'Selenium/AutomationTest2')]",
+            "plus_button": "//*[@id='getManagerList']/div/div/div[2]/div[2]/div[1]/div/a[1]",
+            "search": "//div[@class='nav-search list-search']//input",
+            "button_OK": "//button[contains(@ng-click, 'ok()')]",
+
+            "purpose": "//span[contains(.,' Purpose')]",
+            "purpose_2": "//*[@id='ngw.expense.paymentMethod']/expense-admin-container-view/div//a[contains(@href,'#use_purpose2')]",
+            "purpose_3": "//*[@id='ngw.expense.paymentMethod']/expense-admin-container-view/div//a[contains(@href,'#use_purpose3')]",
+            "input_name": "//*[@id='expense-form-write']/div[1]/div/input",
+            "name_purpose1": "Purpose: ",
+            "pop_up": "//div[contains(@class,'modal-body ')]",
+            "close": "//button[contains(@ng-click, 'cancel(false)')]",
+            "search_general": "//*[@id='ngw.expense.paymentMethod']/expense-admin-container-view/div//input[contains(@data-ng-model,'search.keyword')]",
+            "select_purpose": "//*[@id='use_purpose3']/div/div/table/tbody/tr/td[1]/label/span",
+            "delete_purpose": "//*[@id='ngw.expense.paymentMethod']/expense-admin-container-view//button[contains(@data-ng-click, 'deleteSelected()')]",
+
+
+            "payment_method": "//span[contains(.,' Payment Method')]",
+            "payment_name": "Payment Method: ",
+            "delete": "//td[@class='action-buttons']//a[contains(@data-ng-click, 'deleteItem(row.id)')]",
+
+            "credit_card": "//span[contains(.,' Credit Card')]",
+            "credit_card_number": "//*[@id='expense-form-write']/div[2]/div/input",
+            "credit_card_owner": "//*[@id='expense-form-write']/div[3]/div/input",
+            
+            "currency": "//span[contains(.,' Currency')]",
+            "currency_name": "//select[contains(@name, 'currency_id')]",
+            "currency_dropdown": "//form/div/div/select[@name='currency_id']/option",
+            "select_currency": "//*[@id='ngw.expense.paymentMethod']/expense-admin-container-view//div/div/table/tbody/tr/td[1]/label/span"
+        }
+    },
+
+    "COMANAGE":{
+        "kanban": "Ngoc Kanban",
+        "menu_comanage": "//div[@id='main-navi']/nav-menu-react/nav/a[@class='nt btn-projectnew']",
+        "project_list": "//*[@id='projectnew']//li[contains(@data-category, 'projectnew')]//ul[@class='submenu']/li[contains(@ng-repeat, 'project in projectList')]//a/i[@class='hanbiro-ico-project-kanban']/..",
+        "search_project": "//div[starts-with(@id, 'mCSB') and contains(@id, 'container')]/div/ul/li[3]/ul/li/a/input",
+
+        "project": "//a[contains(@ng-click, 'openDetail(project)')]",
+        "insert_ticket": "Automation Test: Insert work ",
+        "insert_frame": "//*[contains(@aria-placeholder, 'Use @user to assign to someone')]",
+        "frame_work": "//iframe[starts-with(@id, 'ui-tinymce') and contains(@id, 'ifr')]",
+        "frame_work_detail": "//div[5]/div[2]/div/div/han-editor[contains(@ng-model,'workDescription')]//iframe[starts-with(@id, 'ui-tinymce') and contains(@id, 'ifr')]",
+        "view_ticket": "//*[@id='boardStatus']/div/div/div/div[1]/div[3]/span/div/div[1]/div/div[1]",
+        "insert": "//*[@id='tinymce']/p",
+        "detail_work": "//detail-work-react/div[@class='detail-work']//div[@class='work-comment']//input",
+
+        "show_more": "//span[contains(., 'Show more')]",
+        "start_assign": "//div[@class='clearfix project-new-work']//div[3]//div[@class='input-edit dropdown-toggle']/span/span",
+        "assign_list": "//div[3]/div/div[2]/div/ul/li/a[contains(@class, 'member assignee')]",
+        "assigned_to": "//div[@class='clearfix project-new-work']//div[3]//div[@class='input-edit dropdown-toggle']/button",
+        "assigned_to_dropdown": "//div[2]/div/ul/li/a[contains(@class, 'member assignee')]/span",
+        "search": "//div/ul/li/input",
+        "select_assigned": "//div[3]/div/div[2]/div/ul/li[2]/a",
+
+        "start_status": "//div[@class='clearfix project-new-work']//div[1]//div[@class='input-edit dropdown-toggle']/span",
+        "status_list": "//div[@class='clearfix project-new-work']/div[1]//div/ul/li",
+        "status": "//div[@class='clearfix project-new-work']//div[1]//div[@class='input-edit dropdown-toggle']/button",
+        "status_dropdown": "//div[2]/div/ul/li[contains(@class, 'dropdown-item')]/span[contains(@class, 'status-item')]",
+
+        "start_work_type": "//div[@class='clearfix project-new-work']/div[2]//div[@class='input-edit dropdown-toggle']/span",
+        "work_type_list": "//div[@class='clearfix project-new-work']/div[2]//div/ul/li",
+        "work_type": "//div[2]/div/div[2]/div/button",
+        "work_type_dropdown": "//div[2]/div/div[2]/div/ul[@class='dropdown-menu']/li/a",
+
+        "start_priority": "//div[@class='clearfix project-new-work']/div[4]//div[@class='input-edit dropdown-toggle']/span/span",
+        "priority_list": "//div[@class='clearfix project-new-work']/div[4]//div/ul/li/a",
+        "priority": "//div[4]/div/div[2]/div/button",
+        "priority_dropdown": "//div[4]/div/div[2]/div/ul[@class='dropdown-menu']/li/a",
+
+        "start_date": "//div[@class='datepicker-days']/table/tbody/tr//td[contains(., '16')]",
+        "end_date": "//div[@class='datepicker-days']/table/tbody/tr//td[contains(., '19')]",
+
+        "input_description": "Content Ticket: Input description by Automation Test",
+        "save": "//div[2]/div/div[2]/button[1]",
+
+        "comment": "//input[contains(@placeholder, 'Write a Comment')]",
+        "frame_work_comment": "//div[@id='comment-input']//han-editor[contains(@ng-model,'comment')]//iframe[starts-with(@id, 'ui-tinymce') and contains(@id, 'ifr')]",
+        "input_comment": "Content comment: Input comment",
+        "save_comment": "//button[@id='button-comment']/i",
+        "check_comment": "//div[@class='work-comment-detail']//div[@class='annie-editor']//p",
+        "close_detail_work": "//detail-work-react//div[@class='modal-footer center']//button[contains(., 'Close')]",
+
+        "search_work": "//*[@id='ngw.projectnew.project']//detail-project-react//input[contains(@placeholder, 'Enter search keywords.')]",
+        "close_search": "//*[@id='ngw.projectnew.project']//detail-project-react//span[@class='input-group-btn']/button[contains(@type, 'button')]",
+
+        "wait_load_board": "//*[@id='boardStatus']//div[contains(@data-rbd-droppable-id,'all-droppables')]",
+        "work_list": "//*[@id='ngw.projectnew.project']//li/a[contains(.,'Work List')]",
+        "wait_load_work": "//*[@id='ngw.projectnew.project']//detail-project-react//div[contains(@class,'project-works')]/div",
+        "filters": "//*[@id='ngw.projectnew.project']//detail-project//detail-project-react//div[@class='filter']//div[contains(@class,'dropdown-filter')]/button",
+
+        "total_work_list": "//*[@id='ngw.projectnew.project']//detail-project-react//div[@class='splitter-layout']//div[@class='pull-left']/span",
+        "filter_work_list": "//*[@id='ngw.projectnew.project']//detail-project//detail-project-react//div[@class='wrap-iframe']//button",
+        "apply_filter": "//*[@id='ngw.projectnew.project']//detail-project//detail-project-react//div[@class='footer-iframe']//button[contains(.,'Apply Filter')]",
+        "close_filter": "//*[@id='ngw.projectnew.project']//detail-project//detail-project-react//div[@class='footer-iframe']//button[contains(.,'Close')]",
+        "reset_filter": "//*[@id='ngw.projectnew.project']//detail-project//detail-project-react//div[@class='footer-iframe']//button[contains(.,'Reset')]",
+        "view_work": "//*[@id='ngw.projectnew.project']//detail-project-react//div[contains(@class,'project-works')]/div[1]",
+        "work_content": "//*[@id='ngw.projectnew.project']//div[@class='layout-pane']/div//div[@class='content-view-container']",
+        "type_result": "//div[@class='content-view-container']//div[contains(@title, 'Work type')]/following-sibling::div//span",
+
+        "sub_work": "//*[@id='collapseSubWorks']//following-sibling::button",
+        "input_sub_work": "//input[contains(@placeholder,'What needs to be done?')]",
+        "save_sub_work": "//input[contains(@placeholder,'What needs to be done?')]//following-sibling::div/button[1]",
+        "title_sub_work": "//*[@id='collapseSubWorks']//div",
+        "create_project": "//*[@id='projectnew']//li[contains(@data-category, 'projectnew')]//ul[@class='submenu']//a[contains(@ng-click,'openNewProject(event)')]",
+        "project_template": "//*[@class='detail-work']//div[@class='modal-body']//label[contains(.,'Project template')]/following-sibling::div/button",
+        "project_name": "//*[@class='detail-work']//div[@class='modal-body']//input[contains(@placeholder,'Enter name of project')]",
+        "Kanban_Project": "//*[@class='detail-work']//div[@class='modal-body']//label[contains(.,'Project template')]/following-sibling::div/button//span[contains(.,'Kanban Project')]",
+        "save_project": "//*[@class='detail-work']//div[@class='modal-footer']/button[contains(.,'Save')]",
+        "wait_bussiness": "//detail-project-react//div[@class='setting-project']//p[contains(.,'Type')]/following-sibling::div/strong[contains(.,'Bussiness')]",
+        "add_leader": "//detail-project-react//div[@class='setting-project']//p/strong[contains(.,'Leader')]/following-sibling::a",
+        "search_leader": "//*[starts-with(@id,'getUserProjectleaders0')]//input[@class='nav-search-input']",
+        "user1": "//ul[@class='dynatree-container']//li[2]",
+        "user2": "//ul[@class='dynatree-container']//li[3]",
+        "button_add": "//*[starts-with(@id,'getUserProjectleaders0')]//h5[contains(.,'Selected List')]/following-sibling::div/a[@data-action='add']",
+        "save_leader": "//*[starts-with(@id,'getUserProjectleaders0')]//div[contains(@class,'modal-footer')]/button[contains(.,'Save')]",
+        "board": "//*[@id='ngw.projectnew.project']//li/a[contains(.,'Boards')]"
+    },
+
+    "BOARD":{
+        "menu_board": "//div[@id='main-navi']/nav-menu-react/nav/a[@class='nt btn-board']",
+        "board_list": "//*[@id='message-list']/board-react-list/div",
+        "hide_company_board": "//div[starts-with(@id, 'mCSB') and contains(@id, 'container')]/div/ul/li[contains(@data-category,'board')]/a[contains(.,' Company Board')]/b",
+        "board_admin": "//div[starts-with(@id, 'mCSB') and contains(@id, 'container')]//li/a[contains(@data-ng-click, 'showAdminSetting($event)')]",
+
+        "company_folder": "//*[starts-with(@id,'mCSB') and contains(@id,'container')]//li//a[contains(@ui-sref, 'ngw.board.admin_company')]",
+        "folder_list": "//*[@id='ngw.board.admin_company']//ul/li[@class='dynatree-lastsib']/ul/li",
+        "input_folder": "//*[@id='folder_name']",
+        "save": [
+            "//*[@id='boot-strap-valid']//button[contains(@data-ng-click,'saveFolder()')]",
+            "//*[@id='board_folder_share_modal']/div//button[contains(.,' Save ')]"
+        ],
+        
+        "button_plus": "//*[@id='ngw.board.admin_company']//a[contains(@data-ng-click,'addFolder();')]",
+        "select_parent_folder": "//*[@id='boot-strap-valid']//a[contains(@data-toggle,'collapse')]",
+
+        "option_type": "//*[@id='boot-strap-valid']//div//span[contains(.,' Permit Board')]",
+        "folder_type": "//*[@id='boot-strap-valid']//div//span[contains(.,' Photo Gallery')]",
+        "shared_user": "//*[@id='boot-strap-valid']//div//a[contains(@data-ng-click,'openTargetOrg()')]",
+        "search_user": "//*[@id='board_folder_share_modal']//div/form//input",
+        "select_user": "//*[@id='board_folder_share_modal']//a[contains(text(),'Selenium/AutomationTest')]",
+        "plus_button": "//*[@id='board_folder_share_modal']//div/div/div[2]/div[2]/div[1]/div/a[1]",
+
+        "company_folder_check": "//*[starts-with(@id,'mCSB') and contains(@id,'container')]//li[contains(@data-category,'board')]",
+        "search_folder": "//*[@id='ngw.board.admin_company']//div//input[contains(@data-ng-han-enter,'Search();')]",
+        "delete_folder": [
+            "//*[@id='boot-strap-valid']//div//button[contains(@data-ng-click,'deleteFolder(folder.fldseq)')]",
+            "//*[@id='ngw.board.admin_folder']//button[contains(@data-ng-click,'deleteFolder()')]"
+        ],
+        "button_OK": "//*[contains(@ng-click, 'close($event)')]//button[contains(@ng-click, 'ok()')]",
+        "close": "//*[contains(@ng-click,'close($event)')]//button[contains(@ng-click,'cancel(false)') and contains(.,'Close')]",
+        "board_folder_list": "//*[starts-with(@id,'mCSB') and contains(@id,'container')]//ul//li//a[contains(@ui-sref,'ngw.board.admin_folder')]",
+        "list_folder": "//*[@id='ngw.board.admin_folder']//board-folder-react-list//tbody//tr",
+        "search_parent_folder": "//*[@id='ngw.board.admin_folder']//form/div/input[contains(@ng-han-enter,'Search()')]",
+        "total_list": "//*[@id='ngw.board.admin_folder']//div[@class='pull-left']",
+
+        "SETTING":{
+            "setting": "//div[starts-with(@id, 'mCSB') and contains(@id, 'container')]//li/a[contains(@ng-click, 'goToSetting()')]",
+            "name_folder": "//*[@id='board_setting_form']//input[contains(@data-ng-model,'folder.name')]",
+            "my_folder_type": "//*[@id='board_setting_form']//div[@class='radio']/label",
+            "my_type": "//*[@id='board_setting_form']//div[@class='radio']/label[",
+            "select_type": "//*[@id='board_setting_form']//div[@class='radio']/label[contains(.,'",
+            "save": [
+                "//*[@id='board_setting_form']//button[contains(@data-ng-click,'saveFolder()')]",
+                "//span/button[contains(@ng-click, 'saveCategory()')]",
+                "//button[contains(@ng-click,'saveBoard()')]"
+            ],
+            "information": [
+                "//div[contains(@class,'modal-body ') and contains(.,'Data saved successfully.')]",
+                "//div[contains(@class,'modal-body ') and contains(.,'Data deleted successfully.')]"
+            ],
+            "close_infor": "//button[contains(@ng-click,'cancel(false)') and contains(.,'Close')]",
+            "my_folder": "//*[@id='board_setting_form']/div/div[1]//li[contains(@class,'dynatree-lastsib')]//span//a[contains(@class,'dynatree-title') and contains(.,'",
+            "category": "//*[@id='board_setting_form']//div[contains(@ng-show,'showManCategoryChil')]//button[contains(@ng-click,'loadCategoryList()')]",
+            "manage_categories": "//*[@id='board_setting_form']//span[@class='input-group']/input[contains(@ng-model,'category.name')]",
+            "category_list": "//*[@id='board_setting_form']//div[@class='cate-list-wrap']//ul/li/div[contains(@ng-click,'setCategoryData(item)') and contains(.,'",
+            "show_myfolder": "//*[starts-with(@id,'mCSB') and contains(@id,'container')]//li//a/span[contains(.,' My Board')]/following-sibling::b",
+            "select_folder": "//*[starts-with(@id,'mCSB') and contains(@id,'container')]//ul[contains(@class,'submenu')]//span[@class='title']//span[contains(.,'",
+            "write_board": "//*[starts-with(@id,'ngw.board.container')]//div[@class='page-header']//button[contains(@data-ng-click,'goWrite()')]",
+            "wait_page": "//*[starts-with(@id,'board-form')]//div[contains(@class,'tox-editor-header')]//div[@class='tox-toolbar-overlord']",
+            "dropdown_cate": "//*[starts-with(@id,'board-form')]//label[contains(.,'Category')]/following-sibling::div/select",
+            "select_category": "//*[starts-with(@id,'board-form')]//label[contains(.,'Category')]/following-sibling::div/select/option[contains(.,'",
+            "title_board": "//*[@id='form-field-subject']",
+            "board": "//*[@id='print_board_detail']//div[@class='content-board']/div[1]/div[2]",
+            "back_list": "//div[@ng-if='isDetailView()']//button[@data-ng-click='goList($event)']",
+            "board_photo_type": "//*[@id='message-list']//board-photo-react-list//div[@class='img-overlay']",
+            "board_list_type": "//*[@id='message-list']//board-react-list//div[@class='han-react-list']",
+            "delete_folder": "//*[@id='board_setting_form']//a[@ng-click='delFolder()']",
+            "button_OK": "//button[@ng-click='ok()']"
+        }
+    },
+
+
+
+
+
+    "TIMECARD": {
+        "sign_in": "//form//div//button[contains(.,'Sign In')]",
+        "notify": [
+            "//span[contains(@class, 'alert-title') and contains(., 'Success')]"
+        ],
+
+        "body": "//*[@id='app']//div[@class='hr-body']",
+        "tardiness": "//*[@class='modal-content']//form//div//div//div//div[contains(.,'Tardiness')]",
+        "input_reason_late": "//*[@class='modal-content']//form//div//div//textarea",
+        "reason_late": "Sorry, I'm late",
+        "save": "//*[@class='modal-content']//form//div//button[contains(.,'Save')]",
+        "pop_up": "//*[contains(@id,'click-out-side-3') and contains(@class,'item-header show')]",
+        "clock_in_but": "//*[@id='click-out-side-3']//button[contains(.,'Clock-In')]",
+        "pop_up_hid": "//*[@id='click-out-side-3']//img",
+        "nightwork": "//*[@class='modal-content']//span/h6[contains(.,'Confirm Nightwork')]",
+        "close_nightwork": "//*[@class='modal-content']//button/span[contains(.,'Close')]",
+
+        "my_timesheets": "//*[@id='timecard-tab']//li/a[contains(@href,'/nhr/hr/timecard/user/status')]",
+        "format_time": "//*[@id='app']//div[contains(@class, 'info-card')]//div/div[contains(.,'Work Policy')]//following-sibling::div//div[2]",
+        "work_method": "//*[@id='app']//div[contains(@class, 'info-card')]//div/div[contains(.,'Work Policy')]//following-sibling::div//div[3]",
+        "item_clock": "//*[@id='app']//div[contains(@class, 'timeline-item')]//div[contains(@class, 'd-flex ')]//div[@class='cursor-pointer']",
+        "edit_clockin_time": "//*[@id='app']//div[contains(@class, 'timeline-item')]//div[contains(.,'Clock-In')]//div[contains(@class, 'd-flex ')]/span[1]//div[@class='cursor-pointer']",
+        "pop_up_edit": "//*[contains(@class,'modal-content')]//form//div//textarea",
+        "btn_hour": "//*[starts-with(@id,'btnHours')]",
+        "btn_min": "//*[starts-with(@id,'btnMin')]",
+        "minutes": "//*[starts-with(@id,'btnMin')]//following-sibling::div/button[contains(.,'00')]",
+        "on_time": "//*[starts-with(@id,'radio')]//following-sibling::label[contains(.,'On Time')]",
+        "save_edit": "//*[@class='modal-content']//div[@class='modal-footer']//button[contains(.,'Save')]",
+        "leave_early": "//*[@class='modal-content']//form//div//div//div//div[contains(.,'Leave Early')]",
+        "input_reason_leave_early": "//*[@class='modal-content']//form//div//div//textarea",
+        "reason_leave_early": "I have a personal reason. Thank you!",
+
+        "breaktime_but": "//*[@id='click-out-side-3']//button[contains(.,'Break Time')]",
+        "pop_up_breaktime": "//*[@class='modal-content']//button[contains(.,'End Break Time')]",
+        "OT_popup": "//div[@class='modal-content']/div/span/span[contains(@data-lang-id,'tc_title_apply_overtime_approval')]",
+        "OT_clockout": "//div[@class='text-center']/button[contains(.,'Clock-Out')]",
+        "yes_but": [
+            "//div[2]//div[contains(@class, 'cursor-pointer')]/button",
+            "//*[@class='modal-content']//button[contains(.,'Yes')]"
+        ],
+        "clear_working_status": "//*[@id='click-out-side-5']//div/button[contains(.,'Clear')]",
+        "date_work": "//*[@class='main-calendar']//div[contains(@class,'tui-full-calendar-weekday-schedules')]//span[contains(@title,'",
+        "day_off": "//*[@class='main-calendar']//div[contains(@class,'tui-full-calendar-weekday-schedules')]//span[contains(@title,'Day Off')]",
+        "holiday": "//*[@class='main-calendar']//div[contains(@class,'tui-full-calendar-weekday-schedules')]//span[contains(@title,'Holiday')]",
+
+        "clock_out_but": "//*[@id='click-out-side-3']//button[contains(.,'Clock-Out')]",
+        "edit_clockout_time": "//*[@id='app']//div[contains(@class, 'timeline-item')]//div[contains(.,'Clock-Out')]//div[contains(@class, 'd-flex ')]/span[1]//div[@class='cursor-pointer']",
+
+        "output_clockin": "//div[contains(@class, 'content-body')]//div[contains(@class, 'header')]//div[contains(@class, 'check-in-status')]",
+        "output_clockout": "//div[contains(@class, 'content-body')]//div[contains(@class, 'header')]//div[contains(@class, 'check-out-status')]",
+        "officetime": "//*[@id='app']//div[contains(@class, 'info-card')]//div/div[contains(.,'Office time')]//following-sibling::div",
+        "breaktime": "//*[@id='app']//div[contains(@class, 'info-card')]//div/div[contains(.,'Break time')]//following-sibling::div",
+        "workingtime": "//*[@id='app']//div[contains(@class, 'info-card')]//div/div[contains(.,'Working time')]//following-sibling::div/div",
+        "OT": "//*[@id='app']//div[contains(@class, 'info-card')]//div/div/span[contains(@data-lang-id,'tc_status_ot')]/../following-sibling::div/div[1]",
+
+        "wait_calendar": "//div[@class='main-calendar']//div[@class='tui-full-calendar-weekday-schedules']//span",
+        "calendar": "//*[@id='app']//div[contains(@class,'admin_status')]//a/span[contains(.,'Calendar')]",
+        "add_event": "//div[contains(@class, 'pos-relative')]//div[contains(@class, 'cursor-pointer')]//div",
+        "event": "//div[contains(@class, 'cursor-pointer')]//span[contains(.,'Event')]",
+        "add_OT": "//div[contains(@class, 'cursor-pointer')]//span[contains(.,'O/T')]",
+        "choose_event": "//label[contains(@data-lang-id,'tc_title_form_event')]//following-sibling::div[contains(.,'Choose event...')]",
+        "select_event": "//*[contains(@form,'event-modifier-form')]//input[starts-with(@id,'react-select') and contains(@id,'input')]",
+        "title": "//*[@id='title']//input",
+        "place": "//*[@id='location']//input",
+        "memo": "//*[@id='memo']//textarea",
+        "save_event": "//span[contains(.,'Save')]",
+        "title_event": "Event: ",
+        "place_event": "Place: ",
+        "memo_event": "Memo: ",
+        "noty_event": [
+            "[Request] HR > Approval",
+            "Success"
+        ],
+
+        "add_working_status": "//*[@id='click-out-side-5']/div[1]",
+        "working_status": "//*[@id='click-out-side-5']//div[contains(@class,'item-header-content')]//div[2]/div/div/div",
+        "dropdown_time": "//*[starts-with(@id,'dropdown')]/button",
+        "status_time_list": "//*[starts-with(@id,'dropdown')]/div/button",
+        "save_working_status": "//*[@id='click-out-side-5']//div/button[contains(.,'Save')]",
+        "choose_time": "//*[@id='click-out-side-5']//div[4]//input",
+        "select_time": "//*[@id='click-out-side-5']//div[contains(.,'Time')]/following::div//ul/li[contains(.,'18:00')]",
+
+        "my_report": "//*[@id='timecard-tab']//li/a[contains(@href,'/nhr/hr/timecard/user/statistics')]",
+        "work_date": "//*[@id='tab-bar-month-id']//div//li//span[contains(.,'Scheduled working day')]/../../div[2]",
+        "dayoff": "//*[@id='tab-bar-month-id']//div//li//span[contains(.,'Day Off')]/../../div[2]",
+        "holiday_day": "//*[@id='tab-bar-month-id']//div//li//span[contains(.,'Holiday')]/../../div[2]",
+        "basic": "//*[@id='timecard-tab']//li/a[contains(@href,'/nhr/hr/timecard/admin/basic')]",
+        "setting_approval": "//*[@id='app']//div[contains(@class,'basic_setting')]//a/span[contains(.,'Approval')]",
+        "OT_scroll": "//*[@class='basic_setting']//div[@class='card-body']//div[contains(@class,'title-primary') and contains(.,'O/T')]",
+        "OT_list": "//*[@class='basic_setting']//div[@class='card-body']//div[contains(@class,'title-note') and contains(.,'Overtime work requested by the user')]/following-sibling::div/div/label",
+        "approvalOT": "//*[@class='basic_setting']//div[@class='card-body']//div[contains(@class,'title-note') and contains(.,'Overtime work requested by the user')]/following-sibling::div/div",
+        "approver": "//div[contains(@class,'title-note') and contains(.,'Overtime work requested by the user')]/following-sibling::div//div[contains(.,'Use Fixed approval line')]//label[contains(.,'Approvers')]/following::div[1]//span",
+        "add_approver": "//div[contains(@class,'title-note') and contains(.,'Overtime work requested by the user')]/following-sibling::div//div[contains(.,'Use Fixed approval line')]//button",
+        "wait_OT": "//*[contains(@class,'modal-footer')]/button[contains(.,'Save')]",
+        "approval_line": "//*[contains(@class,'modal-content')]//input[contains(@placeholder,'Search name')]",
+
+        "select_user": "//*[starts-with(@id,'tree')]//span/span[contains(@title,'AutomationTest2')]",
+        "plus_button": "//div[contains(@data-lang-id,'tc_title_list_approver')]/following-sibling::div/div[1]",
+        "save_approver": "//*[contains(@class,'modal-footer')]/button[contains(.,'Save')]",
+        "approver_list": "//div[contains(@class,'title-note') and contains(.,'Overtime work requested by the user')]/following-sibling::div//div[contains(.,'Use Fixed approval line')]//label[contains(.,'Approvers')]/following::div[contains(.,'",
+        "filter": "//div[@class='dropdown']/button[contains(.,'Select Filters')]",
+        "filters_OT_list": "//button[contains(.,'Select Filters')]/following-sibling::div/a",
+        "memo_approval_line": "//div[@id='memo']/div/textarea",
+        "save_approval_line": "//div[@class='modal-footer']/button[contains(.,'Save')]",
+        "exit": "//div[contains(@class,'d-flex modal-footer')]//button[contains(.,'Yes')]",
+        "pre_OT_noty": "//*[@id='noty_layout__topRight']/div[1]/div[@class='noty_body']/div/span[@class='alert-title']",
+        "pre_OT_noty_success": [
+            "[Request] HR > Approval",
+            "Success"
+        ],
+        "pre_OT_noty_error": "Error",
+
+        "approval": "//*[@id='timecard-tab']//li/a[contains(@href,'/nhr/hr/timecard/user/approval')]",
+        "approval_list": "//*[@id='my-request']//div[contains(@ref,'eCenterContainer')]/div[1]",
+        "pre_OT": "//*[@id='my-request']//div[contains(@ref,'eCenterContainer')]/div[1]/div[1]",
+        "detail": "//*[@id='my-request']//div[contains(@ref,'eCenterContainer')]/div[1]/div[6]",
+        "status_pre_OT": "//*[starts-with(@id,'right-sidebar')]//div[2]//div[@class='d-flex']/div[1]",
+        "turn_off_view": "//*[@id='my-request']//div[starts-with(@id,'right-sidebar')]/div[1]/div[1]",
+        "reload": "//*[@id='my-request']//button[2]",
+        "status_update": "//*[@id='my-request']//div[contains(@ref,'eCenterContainer')]/div[1]/div[3]//span//div[contains(@data-lang-id,'Cancelled')]",
+
+        "manager": "//*[@id='timecard-tab']//li/a[contains(@href,'/nhr/hr/timecard/admin/manager')]"
+        
+    },
+
+    "testcase_result":{
+        "circular":{
+            "add_folder":{
+                "pass":{
+                    "menu": "Circular",
+                    "sub_menu": "Settings",
+                    "testcase": "Add Folder",
+                    "status": "Pass",
+                    "description": "Add folder circular Successfully => Folder display in Folder List",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Circular",
+                    "sub_menu": "Settings",
+                    "testcase": "Add Folder",
+                    "status": "Fail",
+                    "description": "Add folder circular Fail => Folder don't display in Folder List",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "delete_folder":{
+                "pass":{
+                    "menu": "Circular",
+                    "sub_menu": "Settings",
+                    "testcase": "Delete Folder",
+                    "status": "Pass",
+                    "description": "Delete folder circular Successfully => Folder don't display in Folder List",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Circular",
+                    "sub_menu": "Settings",
+                    "testcase": "Delete Folder",
+                    "status": "Fail",
+                    "description": "Delete folder circular Fail => Folder still display in Folder List",
+                    "tester": "Ngoc"
+                }
+            }
+        },
+        "work_diary":{
+            "add_folder":{
+                "pass":{
+                    "menu": "Work Diary",
+                    "sub_menu": "Settings",
+                    "testcase": "Add Folder",
+                    "status": "Pass",
+                    "description": "Work Diary_Add folder Successfully => Folder display in Folder List",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Work Diary",
+                    "sub_menu": "Settings",
+                    "testcase": "Add Folder",
+                    "status": "Fail",
+                    "description": "Work Diary_Add folder Fail => Folder don't display in Folder List",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "delete_folder":{
+                "pass":{
+                    "menu": "Work Diary",
+                    "sub_menu": "Settings",
+                    "testcase": "Delete Folder",
+                    "status": "Pass",
+                    "description": "Work Diary_Delete folder Successfully => Folder don't display in Folder List",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Work Diary",
+                    "sub_menu": "Settings",
+                    "testcase": "Delete Folder",
+                    "status": "Fail",
+                    "description": "Work Diary_Delete folder Fail => Folder still display in Folder List",
+                    "tester": "Ngoc"
+                }
+            }
+        },
+        "task_report":{
+            "add_folder":{
+                "pass":{
+                    "menu": "Task Report",
+                    "sub_menu": "Settings",
+                    "testcase": "Manage Folders",
+                    "status": "Pass",
+                    "description": "Task Report_Add folder Successfully => Folder display in Folder List",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Task Report",
+                    "sub_menu": "Settings",
+                    "testcase": "Manage Folders",
+                    "status": "Fail",
+                    "description": "Task Report_Add folder Fail => Folder don't display in Folder List",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "delete_folder":{
+                "pass":{
+                    "menu": "Task Report",
+                    "sub_menu": "Settings",
+                    "testcase": "Manage Folders",
+                    "status": "Pass",
+                    "description": "Task Report_Delete folder Successfully => Folder don't display in Folder List",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Task Report",
+                    "sub_menu": "Settings",
+                    "testcase": "Manage Folders",
+                    "status": "Fail",
+                    "description": "Task Report_Delete folder Fail => Folder still display in Folder List",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "set_recipients":{
+                "pass":{
+                    "menu": "Task Report",
+                    "sub_menu": "Settings",
+                    "testcase": "Set Recipients",
+                    "status": "Pass",
+                    "description": "Set Recipients Successfully => Find recipients in list",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Task Report",
+                    "sub_menu": "Settings",
+                    "testcase": "Set Recipients",
+                    "status": "Fail",
+                    "description": "Set Recipients Fail => No recipients in list",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "write_task":{
+                "pass":{
+                    "menu": "Task Report",
+                    "sub_menu": "Settings",
+                    "testcase": "Write Task Report",
+                    "status": "Pass",
+                    "description": "Save Task Report Successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Task Report",
+                    "sub_menu": "Settings",
+                    "testcase": "Write Task Report",
+                    "status": "Fail",
+                    "description": "Save Task Report Fail",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "add_auto_sort":{
+                "pass":{
+                    "menu": "Task Report",
+                    "sub_menu": "Settings",
+                    "testcase": "Add Auto sort",
+                    "status": "Pass",
+                    "description": "Add Auto sort Successfully => Find Auto sort in List",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Task Report",
+                    "sub_menu": "Settings",
+                    "testcase": "Add Auto sort",
+                    "status": "Fail",
+                    "description": "Add Auto sort Fail => No Auto sort in List",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "delete_auto_sort":{
+                "pass":{
+                    "menu": "Task Report",
+                    "sub_menu": "Settings",
+                    "testcase": "Delete Auto sort",
+                    "status": "Pass",
+                    "description": "Delete Auto sort Successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Task Report",
+                    "sub_menu": "Settings",
+                    "testcase": "Delete Auto sort",
+                    "status": "Fail",
+                    "description": "Delete Auto sort Fail",
+                    "tester": "Ngoc"
+                }
+            }
+        },
+        "expense":{
+            "add_folder":{
+                "pass":{
+                    "menu": "Expense",
+                    "sub_menu": "Settings",
+                    "testcase": "Add Folder",
+                    "status": "Pass",
+                    "description": "Add folder expense Successfully => Folder display in Folder List",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Expense",
+                    "sub_menu": "Settings",
+                    "testcase": "Add Folder",
+                    "status": "Fail",
+                    "description": "Add folder expense Fail => Folder don't display in Folder List",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "delete_folder":{
+                "pass":{
+                    "menu": "Expense",
+                    "sub_menu": "Settings",
+                    "testcase": "Delete Folder",
+                    "status": "Pass",
+                    "description": "Delete folder expense Successfully => Folder don't display in Folder List",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Expense",
+                    "sub_menu": "Settings",
+                    "testcase": "Delete Folder",
+                    "status": "Fail",
+                    "description": "Delete folder expense Fail => Folder still display in Folder List",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "set_manager":{
+                "pass":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Set Manager",
+                    "status": "Pass",
+                    "description": "Set Manager Successfully => Total list increase",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Set Manager",
+                    "status": "Fail",
+                    "description": "Set Manager Fail => The total list remains the same",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "delete_manager":{
+                "pass":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Delete Manager",
+                    "status": "Pass",
+                    "description": "Delete Manager Successfully => Total list reduced",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Delete Manager",
+                    "status": "Fail",
+                    "description": "Delete Manager Fail => The total list remains the same",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "add_purpose":{
+                "pass":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Add purpose",
+                    "status": "Pass",
+                    "description": "Add purpose Successfully => Total list increase",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Add purpose",
+                    "status": "Fail",
+                    "description": "Add purpose Fail => The total list remains the same",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "delete_purpose":{
+                "pass":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Delete purpose",
+                    "status": "Pass",
+                    "description": "Delete purpose Successfully => Total list reduced",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Delete purpose",
+                    "status": "Fail",
+                    "description": "Delete purpose Fail => The total list remains the same",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "payment_method":{
+                "pass":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Add Payment Method",
+                    "status": "Pass",
+                    "description": "Add Payment Method Successfully => Total list increase",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Add Payment Method",
+                    "status": "Fail",
+                    "description": "Add Payment Method Fail => The total list remains the same",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "delete_payment_method":{
+                "pass":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Delete Payment Method",
+                    "status": "Pass",
+                    "description": "Delete Payment Method Successfully => Total list reduced",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Delete Payment Method",
+                    "status": "Fail",
+                    "description": "Delete Payment Method Fail => The total list remains the same",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "credit_card":{
+                "pass":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Add Credit card",
+                    "status": "Pass",
+                    "description": "Add Credit card Successfully => Total list increase",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Add Credit card",
+                    "status": "Fail",
+                    "description": "Add Credit card Fail => The total list remains the same",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "delete_credit_card":{
+                "pass":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Delete Credit card",
+                    "status": "Pass",
+                    "description": "Delete Credit card Successfully => Total list reduced",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Delete Credit card",
+                    "status": "Fail",
+                    "description": "Delete Credit card Fail => The total list remains the same",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "currency":{
+                "pass":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Add Currency",
+                    "status": "Pass",
+                    "description": "Add Currency Successfully => Total list increase",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Add Currency",
+                    "status": "Fail",
+                    "description": "Add Currency Fail => The total list remains the same",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "delete_currency":{
+                "pass":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Delete Currency",
+                    "status": "Pass",
+                    "description": "Delete Currency Successfully => Total list reduced",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Expense",
+                    "sub_menu": "Admin",
+                    "testcase": "Delete Currency",
+                    "status": "Fail",
+                    "description": "Delete Currency Fail => The total list remains the same",
+                    "tester": "Ngoc"
+                }
+            }
+        },
+        "co_manage":{
+            "view_work":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "View work",
+                    "status": "Pass",
+                    "description": "View work Successfully => Show pop up detail",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "View work",
+                    "status": "Fail",
+                    "description": "View work Fail => No pop up display",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "insert_work":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Insert work",
+                    "status": "Pass",
+                    "description": "Insert work Successfully => Find new work after search",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Insert work",
+                    "status": "Fail",
+                    "description": "Insert work Fail => No new work after search",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "search_work":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Search work",
+                    "status": "Pass",
+                    "description": "Search work Successfully => Find correct work after search",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Search work",
+                    "status": "Fail",
+                    "description": "Search work Fail => No work or wrong work after search",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "update_status":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update status",
+                    "status": "Pass",
+                    "description": "Update status Successfully => Show correct status with selected state",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update status",
+                    "status": "Fail",
+                    "description": "Update status Fail => Show wrong status with selected state",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "update_work_type":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update work type",
+                    "status": "Pass",
+                    "description": "Update work type Successfully => Show correct work type with selected type",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update work type",
+                    "status": "Fail",
+                    "description": "Update work type Fail => Show wrong work type with selected type",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "update_assigned_to":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update assigned to",
+                    "status": "Pass",
+                    "description": "Update assigned to Successfully => Show correct assigned to with selected assign",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update assigned to",
+                    "status": "Fail",
+                    "description": "Update assigned to Fail => Show wrong assigned to with selected assign",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "update_priority":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update priority",
+                    "status": "Pass",
+                    "description": "Update priority Successfully => Show correct priority with selected priority",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Update priority",
+                    "status": "Fail",
+                    "description": "Update priority Fail => Show wrong priority with selected priority",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "write_comment":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Write comment",
+                    "status": "Pass",
+                    "description": "Write comment Successfully => Comments are displayed in the comments section",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Write comment",
+                    "status": "Fail",
+                    "description": "Write comment Fail => No comments display in the comments section",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "filters_work_type":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Filter work type",
+                    "status": "Pass",
+                    "description": "Filter work type Successfully => Show correct work type after filter",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Filter work type",
+                    "status": "Fail",
+                    "description": "Filter work type Fail => Show wrong work type after filter",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "view_work_list":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "View work list",
+                    "status": "Pass",
+                    "description": "View work list Successfully => Show detail of work",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "View work list",
+                    "status": "Fail",
+                    "description": "View work list Fail => Don't show detail of work",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "sub-work":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Add Sub work",
+                    "status": "Pass",
+                    "description": "Add Sub work Successfully => Sub work display in Sub work list",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Add Sub work",
+                    "status": "Fail",
+                    "description": "Add Sub work Fail => No Sub work display in Sub work list",
+                    "tester": "Ngoc"
+                }
+            }
+        },
+        "board":{
+            "add_my_folder":{
+                "pass":{
+                    "menu": "Board",
+                    "sub_menu": "Settings",
+                    "testcase": "Add Folder",
+                    "status": "Pass",
+                    "description": "Add Folder Successfully => Folder display in Folder List",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Board",
+                    "sub_menu": "Settings",
+                    "testcase": " Add Folder",
+                    "status": "Fail",
+                    "description": "Add Folder Fail => Folder don't display in Folder List",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "delete_my_folder":{
+                "pass":{
+                    "menu": "Board",
+                    "sub_menu": "Settings",
+                    "testcase": "Delete Folder",
+                    "status": "Pass",
+                    "description": "Delete Folder Successfully => Folder don't display in Folder List",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Board",
+                    "sub_menu": "Settings",
+                    "testcase": "Delete Folder",
+                    "status": "Fail",
+                    "description": "Delete Folder Fail => Folder still display in Folder List",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "add_category":{
+                "pass":{
+                    "menu": "Board",
+                    "sub_menu": "Settings",
+                    "testcase": "Add category",
+                    "status": "Pass",
+                    "description": "Add category Successfully => Category display in Category List",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Board",
+                    "sub_menu": "Settings",
+                    "testcase": "Add category",
+                    "status": "Fail",
+                    "description": "Add category Fail => Category don't display in Category List",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "write_board":{
+                "pass":{
+                    "menu": "Board",
+                    "sub_menu": "Settings",
+                    "testcase": "Write board",
+                    "status": "Pass",
+                    "description": "Save board Successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Board",
+                    "sub_menu": "Settings",
+                    "testcase": "Write board",
+                    "status": "Fail",
+                    "description": "Save board Fail",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "add_parent_folder":{
+                "pass":{
+                    "menu": "Board",
+                    "sub_menu": "Admin",
+                    "testcase": "Add Parent Folder",
+                    "status": "Pass",
+                    "description": "Add Parent Folder Successfully => Folder display in Parent folder name",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Board",
+                    "sub_menu": "Admin",
+                    "testcase": "Add Parent Folder",
+                    "status": "Fail",
+                    "description": "Add Parent Folder Fail => Folder don't display in Parent folder name",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "shared_board":{
+                "pass":{
+                    "menu": "Board",
+                    "sub_menu": "Admin",
+                    "testcase": "Shared Board",
+                    "status": "Pass",
+                    "description": "Shared Board Successfully => Folder display in the company folder tree based on permissions was shared",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Board",
+                    "sub_menu": "Admin",
+                    "testcase": "Shared Board",
+                    "status": "Fail",
+                    "description": "Shared Board Fail => Folder don't display or display wrong permission in the company folder",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "add_sub_folder":{
+                "pass":{
+                    "menu": "Board",
+                    "sub_menu": "Admin",
+                    "testcase": "Add Sub Folder",
+                    "status": "Pass",
+                    "description": "Add Sub Folder Successfully => Folder display after search",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Board",
+                    "sub_menu": "Admin",
+                    "testcase": "Add Sub Folder",
+                    "status": "Fail",
+                    "description": "Add Sub Folder Fail => Folder don't display after search",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "search_folder":{
+                "pass":{
+                    "menu": "Board",
+                    "sub_menu": "Admin",
+                    "testcase": "Search Folder",
+                    "status": "Pass",
+                    "description": "Search Folder Successfully => Find correct folder after search",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Board",
+                    "sub_menu": "Admin",
+                    "testcase": "Search Folder",
+                    "status": "Fail",
+                    "description": "Search Folder Fail => No folder or wrong folder after search",
+                    "tester": "Ngoc"
+                }
+            },
+
+            "delete_folder":{
+                "pass":{
+                    "menu": "Board",
+                    "sub_menu": "Admin",
+                    "testcase": "Delete Folder",
+                    "status": "Pass",
+                    "description": "Delete Folder Successfully => Total list reduced",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Board",
+                    "sub_menu": "Admin",
+                    "testcase": "Delete Folder",
+                    "status": "Fail",
+                    "description": "Delete Folder Fail => The total list remains the same",
+                    "tester": "Ngoc"
+                }
+            }
+        },
+        "hr":{
+            "clock_out":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Clock out",
+                    "status": "Pass",
+                    "description": "Clock out Successfully => Display time clock-out in Daily working data",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Clock out",
+                    "status": "Fail",
+                    "description": "Clock out Fail => Don't display time clock-out in Daily working data",
+                    "tester": "Ngoc"
+                }
+            },
+            "working_hour":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Working hours",
+                    "status": "Pass",
+                    "description": "Correct working hours => Compare current time with standard working hours",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Working hours",
+                    "status": "Fail",
+                    "description": "Wrong working hours => Compare current time with standard working hours",
+                    "tester": "Ngoc"
+                }
+            },
+            "status_clock_out":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Status clock out",
+                    "status": "Pass",
+                    "description": "Correct status clock out",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Status clock out",
+                    "status": "Fail",
+                    "description": "Wrong status clock out",
+                    "tester": "Ngoc"
+                }
+            },
+            "office_time":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Office Time",
+                    "status": "Pass",
+                    "description": "Correct Office time",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Office Time",
+                    "status": "Fail",
+                    "description": "Wrong Office time",
+                    "tester": "Ngoc"
+                }
+            },
+            "break_time":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Break Time",
+                    "status": "Pass",
+                    "description": "Correct Break time",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Break Time",
+                    "status": "Fail",
+                    "description": "Wrong Break time",
+                    "tester": "Ngoc"
+                }
+            },
+            "working_time":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Working Time",
+                    "status": "Pass",
+                    "description": "Correct Working Time",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Working Time",
+                    "status": "Fail",
+                    "description": "Wrong Working Time",
+                    "tester": "Ngoc"
+                }
+            },
+            "OT_time":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "OT Time",
+                    "status": "Pass",
+                    "description": "Correct OT Time",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "OT Time",
+                    "status": "Fail",
+                    "description": "Wrong OT Time",
+                    "tester": "Ngoc"
+                }
+            },
+            "list_clock_in":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "List_Clock in",
+                    "status": "Pass",
+                    "description": "Correct time Clock-in",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "List_Clock in",
+                    "status": "Fail",
+                    "description": "Wrong time Clock-in",
+                    "tester": "Ngoc"
+                }
+            },
+            "list_clock_out":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "List_Clock out",
+                    "status": "Pass",
+                    "description": "Correct time Clock-out",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "List_Clock out",
+                    "status": "Fail",
+                    "description": "Wrong time Clock-out",
+                    "tester": "Ngoc"
+                }
+            },
+            "list_breaktime":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "List_Break time",
+                    "status": "Pass",
+                    "description": "Correct break time",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "List_Break time",
+                    "status": "Fail",
+                    "description": "Wrong Break Time",
+                    "tester": "Ngoc"
+                }
+            },
+            "list_workingtime":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "List_Working time",
+                    "status": "Pass",
+                    "description": "Correct Working Time",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "List_Working time",
+                    "status": "Fail",
+                    "description": "Wrong Working Time",
+                    "tester": "Ngoc"
+                }
+            },
+            "total_officetime":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Total_Office time",
+                    "status": "Pass",
+                    "description": "Office time was updated",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Total_Office time",
+                    "status": "Fail",
+                    "description": "Office time wasn't updated",
+                    "tester": "Ngoc"
+                }
+            },
+            "total_workingtime":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Total_Working time",
+                    "status": "Pass",
+                    "description": "Working time was updated",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Total_Working time",
+                    "status": "Fail",
+                    "description": "Working time wasn't updated",
+                    "tester": "Ngoc"
+                }
+            },
+            "total_breaktime":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Total_Break time",
+                    "status": "Pass",
+                    "description": "Break time was updated",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Total_Break time",
+                    "status": "Fail",
+                    "description": "Break time wasn't updated",
+                    "tester": "Ngoc"
+                }
+            },
+            "total_OTtime":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Total_OT time",
+                    "status": "Pass",
+                    "description": "OT time was updated",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Main Feature",
+                    "testcase": "Total_OT time",
+                    "status": "Fail",
+                    "description": "OT time wasn't updated",
+                    "tester": "Ngoc"
+                }
+            }
+        },
+
+        "talk2":{
+            "login":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Common",
+                    "testcase": "Log in",
+                    "status": "Pass",
+                    "description": "Log in Hanbiro Talk2 successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Common",
+                    "testcase": "Log in",
+                    "status": "Fail",
+                    "description": "Log in Hanbiro Talk2 fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "search_ORG":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Organization",
+                    "testcase": "Search Organization",
+                    "status": "Pass",
+                    "description": "Search Organization successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Organization",
+                    "testcase": "Search Organization",
+                    "status": "Fail",
+                    "description": "Search Organization fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "search_user":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Organization",
+                    "testcase": "Search User",
+                    "status": "Pass",
+                    "description": "Search User successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Organization",
+                    "testcase": "Search User",
+                    "status": "Fail",
+                    "description": "Search User fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "access_message_page":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Access message page",
+                    "status": "Pass",
+                    "description": "Access page successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Access message page",
+                    "status": "Fail",
+                    "description": "Access page fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "write_content":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Write content",
+                    "status": "Pass",
+                    "description": "Write content successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Write content",
+                    "status": "Fail",
+                    "description": "Write content fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "quote_content":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Quote content",
+                    "status": "Pass",
+                    "description": "Quote content successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Quote content",
+                    "status": "Fail",
+                    "description": "Quote content fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "attach_file_message":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Attach file",
+                    "status": "Pass",
+                    "description": "Attach file successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Attach file",
+                    "status": "Fail",
+                    "description": "Attach file fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "view_file_message":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "View file",
+                    "status": "Pass",
+                    "description": "View file successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "View file",
+                    "status": "Fail",
+                    "description": "View file fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "download_file_message":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Download file",
+                    "status": "Pass",
+                    "description": "Download file successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Download file",
+                    "status": "Fail",
+                    "description": "Download file fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "forward_file_message":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Forward file",
+                    "status": "Pass",
+                    "description": "Forward file successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Forward file",
+                    "status": "Fail",
+                    "description": "Forward file fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "add_new_member":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Add new member",
+                    "status": "Pass",
+                    "description": "Add new member successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Add new member",
+                    "status": "Fail",
+                    "description": "Add new member fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "message_search":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Search user in message",
+                    "status": "Pass",
+                    "description": "Search user successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Message",
+                    "testcase": "Search user in message",
+                    "status": "Fail",
+                    "description": "Search user fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "access_board_page":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Board",
+                    "testcase": "Access Board page",
+                    "status": "Pass",
+                    "description": "Access page successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Board",
+                    "testcase": "Access Board page",
+                    "status": "Fail",
+                    "description": "Access page fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "write_board":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Board",
+                    "testcase": "Write Board",
+                    "status": "Pass",
+                    "description": "Write Board successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Board",
+                    "testcase": "Write Board",
+                    "status": "Fail",
+                    "description": "Write Board fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "comment_board":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Board",
+                    "testcase": "Comment Board",
+                    "status": "Pass",
+                    "description": "Comment board successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Board",
+                    "testcase": "Comment Board",
+                    "status": "Fail",
+                    "description": "Comment board fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "edit_board":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Board",
+                    "testcase": "Edit Board",
+                    "status": "Pass",
+                    "description": "Edit Board successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Board",
+                    "testcase": "Edit Board",
+                    "status": "Fail",
+                    "description": "Edit Board fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "delete_board":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Board",
+                    "testcase": "Delete Board",
+                    "status": "Pass",
+                    "description": "Delete Board successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Board",
+                    "testcase": "Delete Board",
+                    "status": "Fail",
+                    "description": "Delete Board fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "access_whisper_page":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Whisper",
+                    "testcase": "Access Whisper page",
+                    "status": "Pass",
+                    "description": "Access page successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Whisper",
+                    "testcase": "Access Whisper page",
+                    "status": "Fail",
+                    "description": "Access page fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "send_whisper":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Whisper",
+                    "testcase": "Send Whisper",
+                    "status": "Pass",
+                    "description": "Send Whisper successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Whisper",
+                    "testcase": "Send Whisper",
+                    "status": "Fail",
+                    "description": "Send Whisper fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "view_whisper":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Whisper",
+                    "testcase": "View Whisper",
+                    "status": "Pass",
+                    "description": "View Whisper successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Whisper",
+                    "testcase": "View Whisper",
+                    "status": "Fail",
+                    "description": "View Whisper fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "whisper_search":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Whisper",
+                    "testcase": "Search user in Whisper",
+                    "status": "Pass",
+                    "description": "Search user successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Whisper",
+                    "testcase": "Search user in Whisper",
+                    "status": "Fail",
+                    "description": "Search user fail",
+                    "tester": "Ngoc"
+                } 
+            },
+            "filter_whisper":{
+                "pass":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Whisper",
+                    "testcase": "Filter whisper",
+                    "status": "Pass",
+                    "description": "Filter whisper successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Hanbiro Talk2",
+                    "sub_menu": "Whisper",
+                    "testcase": "Filter whisper",
+                    "status": "Fail",
+                    "description": "Filter whisper fail",
+                    "tester": "Ngoc"
+                } 
+            }
+        },
+        
+        "new_comanage":{
+            "create_project":{
+                "pass":{
+                    "menu": "New Comanage",
+                    "sub_menu": "Kanban",
+                    "testcase": "Create Kanban project",
+                    "status": "Pass",
+                    "description": "Create Kanban project successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "New Comanage",
+                    "sub_menu": "Kanban",
+                    "testcase": "Create Kanban project",
+                    "status": "Fail",
+                    "description": "Create Kanban project fail",
+                    "tester": "Ngoc"
+                } 
+            }
+        }
+    }
+}

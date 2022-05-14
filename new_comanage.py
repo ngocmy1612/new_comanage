@@ -88,6 +88,7 @@ def create_project():
     infor = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='mail-sidebar-body']//nav/a/span[contains(.,'"+ str(pro_name) +"')]")))
     if infor.is_displayed():
         Logging(">> Create new project Successfully")
+        TestCase_LogResult(**data["testcase_result"]["co_manage"]["create_project"]["pass"])
         infor.click()
         time.sleep(3)
         project_content()
@@ -95,6 +96,7 @@ def create_project():
     else:
         Logging(">> Create new project Fail")
         Logging(">>>> Cannot continue excution")
+        TestCase_LogResult(**data["testcase_result"]["co_manage"]["create_project"]["fail"])
         pass
 
 def project_content():
@@ -607,6 +609,7 @@ def create_scrum_project():
     infor_scrum = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='mail-sidebar-body']//nav/a/span[contains(.,'"+ str(scrum_name) +"')]")))
     if infor_scrum.is_displayed():
         Logging(">> Create new Scrum project Successfully")
+        TestCase_LogResult(**data["testcase_result"]["co_manage"]["create_project"]["pass"])
         infor_scrum.click()
         time.sleep(3)
         project_content()
@@ -614,6 +617,7 @@ def create_scrum_project():
     else:
         Logging(">> Create new Scrum project Fail")
         Logging(">>>> Cannot continue excution")
+        TestCase_LogResult(**data["testcase_result"]["co_manage"]["create_project"]["fail"])
         pass
     
 def scrum_project(admin_account):
@@ -648,21 +652,27 @@ def addwork(sprint_name):
     add_work.send_keys(name_work)
     add_work.send_keys(Keys.ENTER)
 
-    add_work_done = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-    print("=> Add new work successfully")
-    time.sleep(3)
-
-    source1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-    target1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='sprint'][1]//div[contains(@class,'sprint-works')]")))
-    action = ActionChains(driver)
-    action.click_and_hold(source1).move_to_element(target1).move_by_offset(0, -100).release().perform()
-    time.sleep(2)
-    source2 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'"+ str(sprint_name) +"')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-    source2.click()
-    print("- View work at Sprint")
-    time.sleep(2)
-    
-    update_work()
+    try:
+        add_work_done = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sLogging-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
+        Logging("=> Add new work Successfully")
+        TestCase_LogResult(**data["testcase_result"]["co_manage"]["insert_work"]["pass"])
+        time.sleep(3)
+        source1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sLogging-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
+        target1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='sLogging'][1]//div[contains(@class,'sLogging-works')]")))
+        action = ActionChains(driver)
+        action.click_and_hold(source1).move_to_element(target1).move_by_offset(0, -100).release().perform()
+        time.sleep(2)
+        source2 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sLogging-header-title') and contains(.,'"+ str(sLogging_name) +"')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
+        source2.click()
+        Logging("- View work at SLogging")
+        time.sleep(2)
+        
+        update_work()
+    except:
+        Logging("=> Add new work Fail")
+        TestCase_LogResult(**data["testcase_result"]["co_manage"]["insert_work"]["fail"])
+        Logging(">>>> Cannot continue excution")
+        pass
 
 def new_work():
     driver.find_element_by_xpath("//ul[@id='myTab5']/li/a[contains(.,'Backlog')]").click()
@@ -711,8 +721,13 @@ def add_folder(folder_name):
         print("- Save folder")
         time.sleep(2)
         driver.find_element_by_xpath("//a//span[contains(.,'All Projects')]").click()
-        add_project(folder_name)
-        print("=> Add folder successfully")
+        try:
+            add_project(folder_name)
+            Logging("=> Add folder successfully")
+            TestCase_LogResult(**data["testcase_result"]["co_manage"]["add_folder"]["pass"])
+        except:
+            Logging("=> Add folder fail")
+            TestCase_LogResult(**data["testcase_result"]["co_manage"]["add_folder"]["fail"])
 
 def add_project(folder_name):
     time.sleep(5)
@@ -734,9 +749,11 @@ def add_project(folder_name):
     folder_name_project1 = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH,"//*[@id='wrap-content-project']//div[@class='content-table']/div[1]//div[@class='column'][8]/div")))
     time.sleep(2)
     if folder_name_project1.text == folder_name:
-        print(">> Add project to folder Successfully")
+        Logging(">> Add project to folder Successfully")
+        TestCase_LogResult(**data["testcase_result"]["co_manage"]["add_project"]["pass"])
     else:
-        print(">> Add project to folder Fail")
+        Logging(">> Add project to folder Fail")
+        TestCase_LogResult(**data["testcase_result"]["co_manage"]["add_project"]["fail"])
 
 def delete_folder(folder_name):
     time.sleep(3)

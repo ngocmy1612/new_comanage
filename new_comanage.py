@@ -653,18 +653,18 @@ def addwork(sprint_name):
     add_work.send_keys(Keys.ENTER)
 
     try:
-        add_work_done = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sLogging-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
+        add_work_done = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
         Logging("=> Add new work Successfully")
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["insert_work"]["pass"])
         time.sleep(3)
-        source1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sLogging-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
-        target1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='sLogging'][1]//div[contains(@class,'sLogging-works')]")))
+        source1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'Backlog')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
+        target1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='sprint'][1]//div[contains(@class,'sprint-works')]")))
         action = ActionChains(driver)
         action.click_and_hold(source1).move_to_element(target1).move_by_offset(0, -100).release().perform()
         time.sleep(2)
-        source2 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sLogging-header-title') and contains(.,'"+ str(sLogging_name) +"')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
+        source2 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'sprint-header-title') and contains(.,'"+ str(sprint_name) +"')]/../following-sibling::div//div[@title='"+ str(name_work) +"']")))
         source2.click()
-        Logging("- View work at SLogging")
+        Logging("- View work at sprint")
         time.sleep(2)
         
         update_work()
@@ -674,8 +674,38 @@ def addwork(sprint_name):
         Logging(">>>> Cannot continue excution")
         pass
 
+def add_epic():
+    epicname = "Epic auto " + str(n)
+    subjectname = "Subject auto " + str(n)
+    driver.find_element_by_xpath("//div[@class='sprint-left'] //li/span[text()='Epics']").click()
+    Logging("- Add Epic")
+    time.sleep(2)
+    driver.find_element_by_xpath("//div[@class='sprint-left'] //div[@class='epic-header-center']/a[text()='Create new']").click()
+    epic_name = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='MuiDialogContent-root'] //input[@placeholder='Epic name']")))
+    epic_name.send_keys(epicname)
+    Logging("- Input Epic name")
+    subject_name = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='MuiDialogContent-root'] //input[@placeholder='Subject']")))
+    subject_name.send_keys(subjectname)
+    Logging("- Input Subject name")
+    time.sleep(2)
+    driver.find_element_by_xpath("//div[@class='dialog-footer'] //button[text()='Save']").click()
+    Logging("- Save Epic")
+    time.sleep(3)
+    try:
+        driver.find_element_by_xpath("//div[@class='sprint-left']//div[@class='epic-content-header-title']//span[@class='e-title' and contains(text(),'" + str(epicname) + "')]")
+        Logging("=> Add Epic Successfully")
+    except:
+        Logging("=> Add Epic Fail")
+
+    driver.find_element_by_xpath("//div[@class='sprint-left']//div[@class='epic-header-right']").click()
+
 def new_work():
     driver.find_element_by_xpath("//ul[@id='myTab5']/li/a[contains(.,'Backlog')]").click()
+    time.sleep(3)
+    try:
+        add_epic()
+    except:
+        pass
     
     count_sprint = int(len(driver.find_elements_by_xpath("//div[@class='sprint-right']//div[@class='sprint-container']/div")))
     if count_sprint > 2:
@@ -764,8 +794,6 @@ def delete_folder(folder_name):
     print("- Delete Folder")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@aria-labelledby,'alert-dialog-title')]//button[text()='Confirm']"))).click()
     print("- Confirm delete folder")
-    
-
 
 
 

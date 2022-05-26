@@ -1034,6 +1034,25 @@
                 }
             },
 
+            "add_epic":{
+                "pass":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Add Epic",
+                    "status": "Pass",
+                    "description": "Add epic Successfully",
+                    "tester": "Ngoc"
+                },
+                "fail":{
+                    "menu": "Co-Manage",
+                    "sub_menu": "Main Features",
+                    "testcase": "Add Epic",
+                    "status": "Fail",
+                    "description": "Add epic Fail",
+                    "tester": "Ngoc"
+                }
+            },
+
             "write_comment":{
                 "pass":{
                     "menu": "Co-Manage",
@@ -1114,17 +1133,17 @@
                 "pass":{
                     "menu": "Co-Manage",
                     "sub_menu": "Main Features",
-                    "testcase": "Add Sub work",
+                    "testcase": "Add Project",
                     "status": "Pass",
-                    "description": "Add Sub work Successfully => Sub work display in Sub work list",
+                    "description": "Add Project to folder Successfully",
                     "tester": "Ngoc"
                 },
                 "fail":{
                     "menu": "Co-Manage",
                     "sub_menu": "Main Features",
-                    "testcase": "Add Sub work",
+                    "testcase": "Add Project",
                     "status": "Fail",
-                    "description": "Add Sub work Fail => No Sub work display in Sub work list",
+                    "description": "Add Project to folder Fail",
                     "tester": "Ngoc"
                 }
             },
@@ -1133,17 +1152,17 @@
                 "pass":{
                     "menu": "Co-Manage",
                     "sub_menu": "Main Features",
-                    "testcase": "Add Sub work",
+                    "testcase": "Add Folder",
                     "status": "Pass",
-                    "description": "Add Sub work Successfully => Sub work display in Sub work list",
+                    "description": "Add Folder Successfully",
                     "tester": "Ngoc"
                 },
                 "fail":{
                     "menu": "Co-Manage",
                     "sub_menu": "Main Features",
-                    "testcase": "Add Sub work",
+                    "testcase": "Add Folder",
                     "status": "Fail",
-                    "description": "Add Sub work Fail => No Sub work display in Sub work list",
+                    "description": "Add Folder Fail",
                     "tester": "Ngoc"
                 }
             }

@@ -139,6 +139,7 @@ def run_project(admin_account):
     project1 = scrum_project(admin_account)
     if project1 == True:
         new_work()
+        #work_list()
         add_folder(folder_name)
         delete_folder(folder_name)
     else:
@@ -694,8 +695,10 @@ def add_epic():
     try:
         driver.find_element_by_xpath("//div[@class='sprint-left']//div[@class='epic-content-header-title']//span[@class='e-title' and contains(text(),'" + str(epicname) + "')]")
         Logging("=> Add Epic Successfully")
+        TestCase_LogResult(**data["testcase_result"]["co_manage"]["add_epic"]["pass"])
     except:
         Logging("=> Add Epic Fail")
+        TestCase_LogResult(**data["testcase_result"]["co_manage"]["add_epic"]["fail"])
 
     driver.find_element_by_xpath("//div[@class='sprint-left']//div[@class='epic-header-right']").click()
 

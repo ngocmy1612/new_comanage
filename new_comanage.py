@@ -11,7 +11,7 @@ from selenium.common.exceptions import NoSuchElementException, WebDriverExceptio
 from selenium.webdriver.support import expected_conditions as EC
 from random import choice, randrange
 from pathlib import Path
-
+from framework_sample import *
 from MN_functions import driver, data, Logging, TestCase_LogResult
 
 n = random.randint(1,1000)
@@ -35,18 +35,18 @@ def access_hr():
     print("- Input user password")
     driver.find_element_by_xpath(data["TIMECARD"]["sign_in"]).click()
     print("- Click button Sign in")
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TIMECARD"]["notify"][0])))
+    Waits.Wait10s_ElementLoaded(data["TIMECARD"]["notify"][0])
     print("=> Log in successfully")
     time.sleep(2)
 
 def co_manage():
     Logging("=================================================NEW CO-MANAGE =======================================================")
-    gw_project = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//a[contains(@href,'/ncomanage/groupware')]")))
+    gw_project = Waits.Wait20s_ElementLoaded("//a[contains(@href,'/ncomanage/groupware')]")
     time.sleep(3)
     gw_project.click()
 
     try:
-        admin_account = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH,"//*[@id='app']//nav/a[contains(@href,'/ncomanage/groupware/co-manage/admin')]")))
+        admin_account = Waits.Wait20s_ElementLoaded(data["COMANAGE"]["admin_account"])
         admin_account = True
         Logging("ADMIN ACCOUNT")
     except:
@@ -56,18 +56,17 @@ def co_manage():
     return admin_account
 
 def kanban(admin_account):
-    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='app']//div[@class='content-dashboard']")))
-    project_list = driver.find_element_by_xpath("//a[contains(@href,'/ncomanage/groupware/co-manage/project-list/normal')]")
-    project_list.click()
+    Waits.Wait20s_ElementLoaded(data["COMANAGE"]["wait_page"][0])
+    Commands.ClickElement(data["COMANAGE"]["project_list1"])
     time.sleep(3)
 
     try:
-        project = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@id='wrap-content-project']//div[text()='Kanban']/../preceding-sibling::div//div/a"))).click()
+        project = Commands.Wait10s_ClickElement(data["COMANAGE"]["project1"])
         Logging("- Open Kanban project")
         project = True
     except:
         Logging("- No project")
-        driver.find_element_by_xpath("//a//span[contains(.,'All Projects')]").click()
+        Commands.ClickElement(data["COMANAGE"]["all_project"])
         if admin_account == True:
             create_project()
             project = True
@@ -77,22 +76,20 @@ def kanban(admin_account):
     return project
 
 def create_project():
-    driver.find_element_by_xpath("//div[@class='mail-sidebar-body']//button[contains(.,'Create Project')]").click()
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@id='alert-dialog-title']")))
+    Commands.ClickElement(data["COMANAGE"]["create_project1"])
+    Waits.Wait10s_ElementLoaded(data["COMANAGE"]["wait_alert"])
     pro_name = "Project: " + str(n)
-    project_name = driver.find_element_by_xpath("//input[@placeholder='Project Name']")
-    project_name.send_keys(pro_name)
+    Commands.InputElement(data["COMANAGE"]["project_name1"], pro_name)
+    Commands.ClickElement(data["COMANAGE"]["confirm"])
 
-    driver.find_element_by_xpath("//button[contains(.,'Confirm')]").click()
-
-    infor = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='mail-sidebar-body']//nav/a/span[contains(.,'"+ str(pro_name) +"')]")))
+    infor = Waits.Wait10s_ElementLoaded(data["COMANAGE"]["infor"]+ str(pro_name) +"')]")
     if infor.is_displayed():
         Logging(">> Create new project Successfully")
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["create_project"]["pass"])
         infor.click()
         time.sleep(3)
         project_content()
-        driver.find_element_by_xpath("//ul[@id='myTab5']/li/a[contains(.,'Boards')]").click()
+        Commands.ClickElement(data["COMANAGE"]["tab_board"])
     else:
         Logging(">> Create new project Fail")
         Logging(">>>> Cannot continue excution")
@@ -100,38 +97,30 @@ def create_project():
         pass
 
 def project_content():
-    driver.find_element_by_xpath("//div[@id='wrap-content-project']//ul[@id='myTab5']/li[contains(.,'Setting')]/a").click()
+    Commands.ClickElement(data["COMANAGE"]["setting"])
     print("- Setting")
-    
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='item-field']/div")))
+    Waits.Wait10s_ElementLoaded(data["COMANAGE"]["wait_page"][1])
     time.sleep(2)
-    driver.find_element_by_xpath("//ul[@id='myTab5']/li/a[contains(.,'View Roster')]").click()
+    Commands.ClickElement(data["COMANAGE"]["roster"])
     print("- View Roster")
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//a[contains(@class,'title-field') and contains(.,'Leader')]/button"))).click()
+    Commands.Wait10s_ClickElement(data["COMANAGE"]["add_leader1"])
     time.sleep(3)
 
-    search_leader = driver.find_element_by_xpath("//form[@id='org-form-search']//input")
-    search_leader.send_keys("auto")
-    search_leader.send_keys(Keys.ENTER)
+    Commands.InputEnterElement(data["COMANAGE"]["search_leader1"], "auto")
     time.sleep(2)
-    driver.find_element_by_xpath("//ul[@class='line']/li[1]//a//input").click()
-    driver.find_element_by_xpath("//ul[@class='line']/li[2]//a//input").click()
-    driver.find_element_by_xpath("//ul[@class='line']/li[3]//a//input").click()
-    driver.find_element_by_xpath("//div[@class='card-body']//button[text()='Add']").click()
-    driver.find_element_by_xpath("//button[text()='Save']").click()
+    Commands.ClickElement(data["COMANAGE"]["select_user"][0])
+    Commands.ClickElement(data["COMANAGE"]["select_user"][1])
+    Commands.ClickElement(data["COMANAGE"]["select_user"][2])
+    Commands.ClickElement(data["COMANAGE"]["add_user"])
+    Commands.ClickElement(data["COMANAGE"]["save_button"])
     time.sleep(3)
 
 def run_project(admin_account):
     print("########### KANBAN PROJECT ###########")
     project = kanban(admin_account)
     if project == True:
-  
         insert_work()
         work_list()
-
-        #drag_drop()
-        #write_work()
-    
     else:
         pass
     
@@ -160,8 +149,8 @@ def comanage():
 def insert_work():
     #Insert work
     time.sleep(5)
-    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@id='wrap-content-project']//div[@class='co-manage-board']//div//div[@class='column-field']")))
-    search = driver.find_element_by_xpath("//*[@id='wrap-content-project']//div[@class='content-search']//input")
+    Waits.Wait20s_ElementLoaded(data["COMANAGE"]["wait_page"][2])
+    search = driver.find_element_by_xpath(data["COMANAGE"]["search_work1"])
     search_value = search.get_attribute("value")
     value = int(len(search_value))
     #Logging(value)
@@ -175,28 +164,23 @@ def insert_work():
 
     time.sleep(3)
     insert_work_name = data["COMANAGE"]["insert_ticket"] + str(m)
-    insert_work = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@id='wrap-content-project']//div[@class='co-manage-board']//textarea")))
-    insert_work.send_keys(insert_work_name)
-    Logging("- Input work name")
-    insert_work.send_keys(Keys.RETURN)
+    Commands.InputEnterElement(data["COMANAGE"]["insert_work"], insert_work_name)
     Logging("- Insert Work")
 
     #Search work
     time.sleep(3)
-    search = driver.find_element_by_xpath("//*[@id='wrap-content-project']//div[@class='content-search']//input")
-    search.send_keys(insert_work_name)
-    search.send_keys(Keys.ENTER)
+    Commands.InputEnterElement(data["COMANAGE"]["search_work1"], insert_work_name)
     Logging("- Search work")
     time.sleep(5)
-    driver.find_element_by_xpath("//*[@id='wrap-content-project']//div[@class='column-field'][1]//div[contains(@class,'MuiCardContent-root')]/div[1]").click()
+    Commands.ClickElement(data["COMANAGE"]["view_ticket1"])
     Logging("- View ticket")
     time.sleep(3)
-    detail = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@class='co-manage-work-detail']//div[@class='work-input-container']")))
+    detail = Waits.Wait20s_ElementLoaded(data["COMANAGE"]["detail_ticket"])
     if detail.is_displayed():
         Logging("=> View work successfully")
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["view_work"]["pass"])
 
-        title_work = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@class='co-manage-work-detail']//div[@class='work-input-container']/textarea")))
+        title_work = Waits.Wait20s_ElementLoaded(data["COMANAGE"]["title_work"])
         if insert_work_name == title_work.text:
             Logging("=> Insert work successfully")
             TestCase_LogResult(**data["testcase_result"]["co_manage"]["insert_work"]["pass"])
@@ -210,10 +194,10 @@ def insert_work():
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["view_work"]["fail"])
 
     update_work()
-    driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//button[2]").click()
+    Commands.ClickElement(data["COMANAGE"]["close"])
     Logging("- Close detail work")
     time.sleep(2)
-    search = driver.find_element_by_xpath("//*[@id='wrap-content-project']//div[@class='content-search']//input")
+    search = driver.find_element_by_xpath(data["COMANAGE"]["search_work1"])
     search.clear()
     search.send_keys(Keys.ENTER)
     Logging("- Clear search work")
@@ -274,8 +258,7 @@ def update_work():
 
 def update_status():
     #Select status
-    start_status = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Status')]/following-sibling::div/button[@id='dropdownMenuButton']")
-    #Logging(start_status.text)
+    start_status = driver.find_element_by_xpath(data["COMANAGE"]["start_status1"])
     start_status.click()
     Logging("- Update status")
     status_list = int(len(driver.find_elements_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Status')]/following-sibling::div/div/a")))
@@ -605,7 +588,7 @@ def create_scrum_project():
     driver.find_element_by_xpath("//div[@class='co-manage-new-folder']//span[text()='More']").click()
     driver.find_element_by_xpath("//div[@class='template']//h6[contains(.,'Advanced Project')]").click()
     print("- Scrum Project")
-    driver.find_element_by_xpath("//button[contains(.,'Confirm')]").click()
+    Commands.ClickElement(data["COMANAGE"]["confirm"])
 
     infor_scrum = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='mail-sidebar-body']//nav/a/span[contains(.,'"+ str(scrum_name) +"')]")))
     if infor_scrum.is_displayed():
@@ -622,7 +605,7 @@ def create_scrum_project():
         pass
     
 def scrum_project(admin_account):
-    driver.find_element_by_xpath("//a//span[contains(.,'All Projects')]").click()
+    Commands.ClickElement(data["COMANAGE"]["all_project"])
     time.sleep(3)
 
     try:
@@ -631,7 +614,7 @@ def scrum_project(admin_account):
         project1 = True
     except:
         Logging("- No project")
-        driver.find_element_by_xpath("//a//span[contains(.,'All Projects')]").click()
+        Commands.ClickElement(data["COMANAGE"]["all_project"])
         if admin_account == True:
             create_scrum_project()
             project1 = True
@@ -740,7 +723,7 @@ def add_folder(folder_name):
         default_folder = driver.find_element_by_xpath("//div[@class='han-tree-folder']/a/span[contains(.,'" + str(folder_name) + "')]")
         if default_folder.is_displayed():
             print("- Folder was already")
-            driver.find_element_by_xpath("//a//span[contains(.,'All Projects')]").click()
+            Commands.ClickElement(data["COMANAGE"]["all_project"])
             add_project(folder_name)
     except:
         driver.find_element_by_xpath("//div[contains(@class,'co-manage-project-list-left-menu')]//a[contains(.,'Add Folder')]").click()
@@ -750,10 +733,10 @@ def add_folder(folder_name):
         
         subject = driver.find_element_by_xpath("//input[@placeholder='Subject']")
         subject.send_keys(folder_name)
-        driver.find_element_by_xpath("//button[contains(.,'Confirm')]").click()
+        Commands.ClickElement(data["COMANAGE"]["confirm"])
         print("- Save folder")
         time.sleep(2)
-        driver.find_element_by_xpath("//a//span[contains(.,'All Projects')]").click()
+        Commands.ClickElement(data["COMANAGE"]["all_project"])
         try:
             add_project(folder_name)
             Logging("=> Add folder successfully")
@@ -793,11 +776,12 @@ def delete_folder(folder_name):
     driver.find_element_by_xpath("//div[contains(@class,'co-manage-project-list-left-menu')]//a[contains(.,'Add Folder')]").click()
     delete_fol = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@id='wrap-content-project']//div[@data-type='SplitPane']//div[@class='bd-b' and contains(.,'"+ str(folder_name) +"')]//button[2]")))
     time.sleep(2)
+    driver.execute_script("arguments[0].scrollIntoView();", delete_fol)
     delete_fol.click()
     print("- Delete Folder")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@aria-labelledby,'alert-dialog-title')]//button[text()='Confirm']"))).click()
     print("- Confirm delete folder")
-
+    #delete_fol.location_once_scrolled_into_view
 
 
 access_hr()

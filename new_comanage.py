@@ -261,14 +261,14 @@ def update_status():
     start_status = driver.find_element_by_xpath(data["COMANAGE"]["start_status1"])
     start_status.click()
     Logging("- Update status")
-    status_list = int(len(driver.find_elements_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Status')]/following-sibling::div/div/a")))
+    status_list = int(len(driver.find_elements_by_xpath(data["COMANAGE"]["status_list1"])))
     
     
     list_status = []
     i=0
     for i in range(status_list):
         i += 1
-        status = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Status')]/following-sibling::div/div/a" + "[" + str(i) + "]/span")
+        status = driver.find_element_by_xpath(data["COMANAGE"]["status1"] + "[" + str(i) + "]/span")
         if status.text != start_status.text:
             list_status.append(status.text)
         else:
@@ -279,12 +279,12 @@ def update_status():
 
     x = random.choice(list_status)
     time.sleep(1)
-    status_label = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Status')]/following-sibling::div/div/a[contains(., '" + str(x) + "')]")
+    status_label = driver.find_element_by_xpath(data["COMANAGE"]["status_label"] + str(x) + "')]")
     status_label.click()
     Logging("- Select status")
 
     time.sleep(3)
-    start_status_update = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Status')]/following-sibling::div/button[@id='dropdownMenuButton']")
+    start_status_update = driver.find_element_by_xpath(data["COMANAGE"]["start_status_update"])
     if start_status_update.text == str(x):
         Logging("=> Update status successfully")
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["update_status"]["pass"])
@@ -294,17 +294,17 @@ def update_status():
 
 def update_work_type():
     #Select work type
-    start_work_type = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Work type')]/following-sibling::div//button[@id='dropdownMenuButton']")
+    start_work_type = driver.find_element_by_xpath(data["COMANAGE"]["start_work_type1"])
     #Logging(start_work_type.text)
     start_work_type.click()
     Logging("- Update Work type")
-    work_type_list = int(len(driver.find_elements_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Work type')]/following-sibling::div//div/a")))
+    work_type_list = int(len(driver.find_elements_by_xpath(data["COMANAGE"]["work_type_list1"])))
     
     list_work_type = []
     i=0
     for i in range(work_type_list):
         i += 1
-        work_type = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Work type')]/following-sibling::div//div/a" + "[" + str(i) + "]//span")
+        work_type = driver.find_element_by_xpath(data["COMANAGE"]["work_type1"]+ str(i) + "]//span")
         if work_type.text != start_work_type.text:
             list_work_type.append(work_type.text)
         else:
@@ -315,12 +315,12 @@ def update_work_type():
 
     x = random.choice(list_work_type)
     time.sleep(1)
-    work_type_label = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Work type')]/following-sibling::div//div/a//span[contains(., '" + str(x) + "')]")
+    work_type_label = driver.find_element_by_xpath(data["COMANAGE"]["work_type_label"] + str(x) + "')]")
     work_type_label.click()
     Logging("- Select work type")
 
     time.sleep(3)
-    start_work_type_update = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@class='co-manage-work-detail']//div/span[contains(.,'Work type')]/following-sibling::div//button[@id='dropdownMenuButton']")))
+    start_work_type_update = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["start_work_type_update"])))
     if start_work_type_update.text == str(x):
         Logging("=> Update work type successfully")
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["update_work_type"]["pass"])
@@ -330,18 +330,18 @@ def update_work_type():
 
 def update_assigned_to():
     #Select assigned to
-    start_assign = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Assigned to')]/following-sibling::div/button/span")
+    start_assign = driver.find_element_by_xpath(data["COMANAGE"]["start_assign1"])
     #Logging(start_assign.text)
     start_assign.click()
     Logging("- Assigned to")
     time.sleep(3)
-    assign_list = int(len(driver.find_elements_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Assigned to')]/following-sibling::div/div//div[2]/div/a")))
+    assign_list = int(len(driver.find_elements_by_xpath(data["COMANAGE"]["assign_list1"])))
 
     list_assign = []
     i=0
     for i in range(assign_list):
         i += 1
-        assign = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Assigned to')]/following-sibling::div/div//div[2]/div/a" + "[" + str(i) + "]/span")
+        assign = driver.find_element_by_xpath(data["COMANAGE"]["assign"] + str(i) + "]/span")
         if assign.text != start_assign.text:
             list_assign.append(assign.text)
         else:
@@ -352,12 +352,12 @@ def update_assigned_to():
 
     x = random.choice(list_assign)
     time.sleep(1)
-    assign_label = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Assigned to')]/following-sibling::div/div//div[2]/div/a/span[contains(.,'" + str(x) + "')]")
+    assign_label = driver.find_element_by_xpath(data["COMANAGE"]["assign_label"] + str(x) + "')]")
     assign_label.click()
     Logging("- Select user")
     
     time.sleep(3)
-    start_assign_update = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@class='co-manage-work-detail']//div/span[contains(.,'Assigned to')]/following-sibling::div/button/span")))
+    start_assign_update = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["start_assign_update"])))
     if start_assign_update.text == str(x):
         Logging("=> Update assigned to successfully")
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["update_assigned_to"]["pass"])
@@ -367,18 +367,18 @@ def update_assigned_to():
 
 def update_priority():
     #Select priority
-    start_priority = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Priority')]/following-sibling::div//button[@id='dropdownMenuButton']")
+    start_priority = driver.find_element_by_xpath(data["COMANAGE"]["start_priority1"])
     #Logging(start_priority.text)
     start_priority.click()
     Logging("- Update priority")
     time.sleep(2)
-    priority_list = int(len(driver.find_elements_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Priority')]/following-sibling::div/div/a")))
+    priority_list = int(len(driver.find_elements_by_xpath(data["COMANAGE"]["priority_list1"])))
     
     list_priority = []
     i=0
     for i in range(priority_list):
         i += 1
-        priority = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Priority')]/following-sibling::div/div/a" + "[" + str(i) + "]/span")
+        priority = driver.find_element_by_xpath(data["COMANAGE"]["priority1"] + str(i) + "]/span")
         if priority.text != start_priority.text:
             list_priority.append(priority.text)
         else:
@@ -389,13 +389,13 @@ def update_priority():
 
     x = random.choice(list_priority)
     time.sleep(2)
-    priority_label = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Priority')]/following-sibling::div/div/a/span[text()='" + str(x) + "']")
+    priority_label = driver.find_element_by_xpath(data["COMANAGE"]["priority_label"] + str(x) + "']")
     time.sleep(2)
     priority_label.click()
     Logging("- Select priority")
     
     time.sleep(3)
-    start_priority_update = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@class='co-manage-work-detail']//div/span[contains(.,'Priority')]/following-sibling::div//button[@id='dropdownMenuButton']")))
+    start_priority_update = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["start_priority_update"])))
     if start_priority_update.text == str(x):
         Logging("=> Update priority successfully")
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["update_priority"]["pass"])
@@ -404,66 +404,66 @@ def update_priority():
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["update_priority"]["fail"])
 
 def update_CC():
-    driver.find_element_by_xpath("//*[@id='cc-dropdown']//div[contains(@class,'work-cc-add-button')]").click()
+    driver.find_element_by_xpath(data["COMANAGE"]["cc_button"]).click()
     time.sleep(2)
-    CC_list = int(len(driver.find_elements_by_xpath("//*[@id='cc-dropdown']//form/div[contains(@class,'scroll-container')]/div")))
+    CC_list = int(len(driver.find_elements_by_xpath(data["COMANAGE"]["CC_list"])))
     x = randrange(1, CC_list +1)
-    select_cc = driver.find_element_by_xpath("//*[@id='cc-dropdown']//form/div[contains(@class,'scroll-container')]/div["+ str(x) +"]/div/input/following-sibling::label")
+    select_cc = driver.find_element_by_xpath(data["COMANAGE"]["select_cc"]+ str(x) +"]/div/input/following-sibling::label")
     select_cc.click()
     print("- Select CC")
-    driver.find_element_by_xpath("//*[@id='cc-dropdown']//div[contains(@class,'work-cc-add-button')]").click()
+    driver.find_element_by_xpath(data["COMANAGE"]["cc_button"]).click()
     print("- Close CC box")
     time.sleep(2)
 
 def update_date():
-    driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Start Date')]//following-sibling::div//input").click()
+    driver.find_element_by_xpath(data["COMANAGE"]["start_date1"]).click()
     Logging("- Start date")
     time.sleep(2)
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@class='react-datepicker__week']//div[contains(., '16')]"))).click()
     Logging("- Select start date")
-    driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'End Date')]//following-sibling::div//input").click()
+    driver.find_element_by_xpath(data["COMANAGE"]["end_date1"]).click()
     Logging("- End date")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@class='react-datepicker__week']//div[contains(., '19')]"))).click()
     Logging("- Select end date")
 
 def update_description():
     try:
-        content = driver.find_element_by_xpath("//*[@id='description']//span[text()='Click to add description']")
+        content = driver.find_element_by_xpath(data["COMANAGE"]["content"])
         content.click()
         print("- Click to add description")
         time.sleep(2)
-        insert_work = driver.find_element_by_xpath("//*[@id='description']//div[@class='han-react-quill']//div[contains(@class,'fr-view')]/div")
+        insert_work = driver.find_element_by_xpath(data["COMANAGE"]["insert_work1"])
         insert_work.send_keys(data["COMANAGE"]["input_description"])
         Logging("- Input Description")
-        driver.find_element_by_xpath("//*[@id='description']//div[@class='group-button-field']/button[contains(.,'Save')]").click()
+        driver.find_element_by_xpath(data["COMANAGE"]["save_des"]).click()
         Logging("- Save Description")
     except:
-        hover_description = driver.find_element_by_xpath("//*[@id='description']/div[@class='work-description']")
+        hover_description = driver.find_element_by_xpath(data["COMANAGE"]["hover_description"])
         hover_1 = ActionChains(driver).move_to_element(hover_description)
         hover_1.perform()
-        edit_button = driver.find_element_by_xpath("//*[@id='description']//div[@class='co-manage-han-copy'][1]//i[@class='copy-content']")
+        edit_button = driver.find_element_by_xpath(data["COMANAGE"]["edit_button"])
         edit_button.click()
         time.sleep(2)
-        insert_work = driver.find_element_by_xpath("//*[@id='description']//div[@class='han-react-quill']//div[contains(@class,'fr-view')]/div")
+        insert_work = driver.find_element_by_xpath(data["COMANAGE"]["insert_work1"])
         insert_work.clear()
         insert_work.send_keys(data["COMANAGE"]["input_description"])
         Logging("- Input Description")
-        driver.find_element_by_xpath("//*[@id='description']//div[@class='group-button-field']/button[contains(.,'Save')]").click()
+        driver.find_element_by_xpath(data["COMANAGE"]["save_des"]).click()
         Logging("- Save Description")
 
 def write_comment():
     #Comment
-    driver.find_element_by_xpath("//*[@class='co-manage-work-comment ']//div[contains(@class,'work-description')]/div/div").click()
+    driver.find_element_by_xpath(data["COMANAGE"]["write_comment"]).click()
     time.sleep(2)
-    insert_comment = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@class='co-manage-work-comment ']//div[contains(@class,'han-react-quill')]//div[contains(@class,'fr-wrapper')]/div/div")))
+    insert_comment = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["insert_comment"])))
     insert_comment.click()
     insert_comment.send_keys(data["COMANAGE"]["input_comment"])
     Logging("- Input comment")
-    save_comment = driver.find_element_by_xpath("//*[@class='co-manage-work-comment ']//div[contains(@class,'group-button-field')]//button/span[text()='Save']")
+    save_comment = driver.find_element_by_xpath(data["COMANAGE"]["save_comment1"])
     save_comment.click()
     Logging("- Save comment")
     try:
-        comment_work = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='img']//div[contains(@class,'description-field')]/div")))
+        comment_work = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["comment_work"])))
         if (data["COMANAGE"]["input_comment"]) == comment_work.text:
             Logging("=> Write comment Successfully")
             TestCase_LogResult(**data["testcase_result"]["co_manage"]["write_comment"]["pass"])
@@ -473,14 +473,14 @@ def write_comment():
         Logging("=> Write comment Fail")
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["write_comment"]["fail"])
 
-    driver.find_element_by_xpath("//div[@class='co-manage-work-comment ']//div[@class='han-svg']/button[2]").click()
+    driver.find_element_by_xpath(data["COMANAGE"]["edit_comment"]).click()
     print("- Click edit comment")
     time.sleep(2)
-    insert_comment1 = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@class='co-manage-work-comment ']//div[contains(@class,'han-react-quill')]//div[contains(@class,'fr-wrapper')]/div/div")))
+    insert_comment1 = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["insert_comment"])))
     insert_comment1.clear()
     time.sleep(2)
     insert_comment1.send_keys("This is comment after edit")
-    save_comment1 = driver.find_element_by_xpath("//*[@class='co-manage-work-comment ']//div[contains(@class,'group-button-field')]//button/span[text()='Save']")
+    save_comment1 = driver.find_element_by_xpath(data["COMANAGE"]["save_comment1"])
     save_comment1.click()
     print("- Save comment edit")
     

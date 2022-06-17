@@ -485,42 +485,42 @@ def write_comment():
     print("- Save comment edit")
     
 def work_list():
-    WebDriverWait(driver,20).until(EC.presence_of_element_located((By.XPATH, "//div[@id='wrap-content-project']//div[@class='co-manage-board']//div//div[@class='column-field']")))
+    WebDriverWait(driver,20).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["work_list1_page"])))
 
-    driver.find_element_by_xpath("//*[@id='myTab5']/li/a[text()='Work List']").click()
+    driver.find_element_by_xpath(data["COMANAGE"]["work_list1"]).click()
     Logging("- Work List")
-    WebDriverWait(driver,20).until(EC.presence_of_element_located((By.XPATH, "//*[@class='work-list']//div[contains(@class,'content-table')]/div")))
+    WebDriverWait(driver,20).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["work_list_page"])))
     try:
         x = filters_worktype()
     except:
         pass
 
 def filters_worktype():
-    driver.find_element_by_xpath("//*[@class='work-list']//div[contains(@class,'dropdown')]/button[contains(.,'Work type')]").click()
+    driver.find_element_by_xpath(data["COMANAGE"]["filter_work_type"]).click()
     Logging("- Search Work type")
-    filter_work_list = int(len(driver.find_elements_by_xpath("//*[@class='work-list']//div[contains(@class,'dropdown')]/button[contains(.,'Work type')]/following-sibling::div/form/a")))
+    filter_work_list = int(len(driver.find_elements_by_xpath(data["COMANAGE"]["filter_work_list1"])))
 
     list_filter_work = []
     i=0
 
     for i in range(filter_work_list):
         i += 1
-        filter_work = driver.find_element_by_xpath("//*[@class='work-list']//div[contains(@class,'dropdown')]/button[contains(.,'Work type')]/following-sibling::div/form/a" + "[" + str(i) + "]//span") 
+        filter_work = driver.find_element_by_xpath(data["COMANAGE"]["filter_work"] + str(i) + "]//span") 
         list_filter_work.append(filter_work.text)
     
     Logging("- Total filter Work type: "+ str(len(list_filter_work)))
     #Logging(list_filter_work)
 
     x = random.choice(list_filter_work)
-    filter_work_select = driver.find_element_by_xpath("//*[@class='work-list']//div[contains(@class,'dropdown')]/button[contains(.,'Work type')]/following-sibling::div/form/a//span[contains(., '" + str(x) + "')]")
+    filter_work_select = driver.find_element_by_xpath(data["COMANAGE"]["filter_work_select"] + str(x) + "')]")
     filter_work_select.click()
     Logging("- Filter Work type")
     time.sleep(3)
 
     try:
-        work_list = WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, "//*[@class='work-list']//div[contains(@class,'content-table')]/div//div[@class='subject']")))
+        work_list = WebDriverWait(driver,5).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["work_list2"])))
         if work_list.is_displayed():
-            driver.find_element_by_xpath("//*[@class='work-list']//div[contains(@class,'dropdown')]/button[contains(.,'Work type')]").click()
+            driver.find_element_by_xpath(data["COMANAGE"]["filter_work_type"]).click()
             time.sleep(2)
             work_list.click()
             try:
@@ -530,34 +530,34 @@ def filters_worktype():
                 pass
     except:
         Logging("- No data found!")
-        driver.find_element_by_xpath("//*[@class='work-list']//div[contains(@class,'dropdown')]/button[contains(.,'Work type')]/following-sibling::div/form/div/button[contains(.,'Clear')]").click()
+        driver.find_element_by_xpath(data["COMANAGE"]["clear_filter"]).click()
         Logging("- Clear filter")
 
     return x
 
 def check_filter(x):
-    detail_work = WebDriverWait(driver,20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='wrap-content-project']//div[@class='co-manage-work-detail']/div//textarea")))
+    detail_work = WebDriverWait(driver,20).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["detail_work1"])))
     time.sleep(2)
     if detail_work.is_displayed():
         Logging("=> View work list successfully")
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["view_work_list"]["pass"])
         time.sleep(2)
-        type_text = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//div/span[contains(.,'Work type')]/following-sibling::div//button[@id='dropdownMenuButton']//span")
+        type_text = driver.find_element_by_xpath(data["COMANAGE"]["type_text"])
         if type_text.text == str(x) == "Sub Task":
             Logging("=> Correct Work type")
         elif type_text.text == str(x):
             Logging("=> Correct Work type")
-            driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//button[contains(.,'Create Sub Work')]").click()
+            driver.find_element_by_xpath(data["COMANAGE"]["create_sub"]).click()
             Logging("- Create Sub work")
             sub_name = "Auto Test: Sub work " + str(m)
-            input_sub = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//button[contains(.,'Create Sub Work')]/../../../following-sibling::div//input[@type='text']")
+            input_sub = driver.find_element_by_xpath(data["COMANAGE"]["input_sub"])
             #input_sub.click()
             input_sub.send_keys(sub_name)
             Logging("- Input Sub work name")
-            driver.find_element_by_xpath("//*[@class='work-input-container']//button[1]").click()
+            driver.find_element_by_xpath(data["COMANAGE"]["save_sub"]).click()
             Logging("- Save Sub work")
             time.sleep(3)
-            sub_work_title = driver.find_element_by_xpath("//*[@class='co-manage-work-detail']//h6[contains(.,'Subtasks')]/following-sibling::ul/li//span[contains(.,'" + sub_name + "')]")
+            sub_work_title = driver.find_element_by_xpath(data["COMANAGE"]["sub_work_title"] + sub_name + "')]")
             if sub_work_title.is_displayed:
                 sub_work_title.click()
                 Logging("=> Create sub-work successfully")
@@ -569,8 +569,8 @@ def check_filter(x):
         else:
             Logging("=> Wrong Work type")
 
-        driver.find_element_by_xpath("//*[@class='work-list']//div[contains(@class,'dropdown')]/button[contains(.,'Work type')]").click()
-        driver.find_element_by_xpath("//*[@class='work-list']//div[contains(@class,'dropdown')]/button[contains(.,'Work type')]/following-sibling::div/form/div/button[contains(.,'Clear')]").click()
+        driver.find_element_by_xpath(data["COMANAGE"]["filter_work_type"]).click()
+        driver.find_element_by_xpath(data["COMANAGE"]["clear_filter"]).click()
     else:
         Logging("=> View work list fail")
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["view_work_list"]["fail"])
@@ -580,24 +580,24 @@ def check_filter(x):
 ############################################ Scrum project
 
 def create_scrum_project():
-    driver.find_element_by_xpath("//div[@class='mail-sidebar-body']//button[contains(.,'Create Project')]").click()
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@id='alert-dialog-title']")))
+    driver.find_element_by_xpath(data["COMANAGE"]["create_project1"]).click()
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["wait_alert"])))
     scrum_name = "Scrum Project: " + str(m)
-    project_scrum = driver.find_element_by_xpath("//input[@placeholder='Project Name']")
+    project_scrum = driver.find_element_by_xpath(data["COMANAGE"]["project_name1"])
     project_scrum.send_keys(scrum_name)
-    driver.find_element_by_xpath("//div[@class='co-manage-new-folder']//span[text()='More']").click()
-    driver.find_element_by_xpath("//div[@class='template']//h6[contains(.,'Advanced Project')]").click()
+    driver.find_element_by_xpath(data["COMANAGE"]["more_project"]).click()
+    driver.find_element_by_xpath(data["COMANAGE"]["advanced_project"]).click()
     print("- Scrum Project")
     Commands.ClickElement(data["COMANAGE"]["confirm"])
 
-    infor_scrum = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@class='mail-sidebar-body']//nav/a/span[contains(.,'"+ str(scrum_name) +"')]")))
+    infor_scrum = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["infor"]+ str(scrum_name) +"')]")))
     if infor_scrum.is_displayed():
         Logging(">> Create new Scrum project Successfully")
         TestCase_LogResult(**data["testcase_result"]["co_manage"]["create_project"]["pass"])
         infor_scrum.click()
         time.sleep(3)
         project_content()
-        driver.find_element_by_xpath("//ul[@id='myTab5']/li/a[contains(.,'Backlog')]").click()
+        driver.find_element_by_xpath(data["COMANAGE"]["backlog"]).click()
     else:
         Logging(">> Create new Scrum project Fail")
         Logging(">>>> Cannot continue excution")
@@ -609,7 +609,7 @@ def scrum_project(admin_account):
     time.sleep(3)
 
     try:
-        project1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@id='wrap-content-project']//div[text()='Scrum']/../preceding-sibling::div//div/a"))).click()
+        project1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["COMANAGE"]["project2"]))).click()
         Logging("- Open Scrum project")
         project1 = True
     except:
@@ -686,7 +686,7 @@ def add_epic():
     driver.find_element_by_xpath("//div[@class='sprint-left']//div[@class='epic-header-right']").click()
 
 def new_work():
-    driver.find_element_by_xpath("//ul[@id='myTab5']/li/a[contains(.,'Backlog')]").click()
+    driver.find_element_by_xpath(data["COMANAGE"]["backlog"]).click()
     time.sleep(3)
     try:
         add_epic()

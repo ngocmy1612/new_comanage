@@ -17,7 +17,7 @@ from MN_functions import driver, data, Logging, TestCase_LogResult
 n = random.randint(1,1000)
 m = random.randint(1,10000)
 
-domain_hr = "global3.hanbiro.com/ncomanage"
+domain_hr = "tg01.hanbiro.net/ncomanage"
 folder_name = "QA Team"
 
 chrome_path = os.path.dirname(Path(__file__).absolute())+"\\chromedriver.exe"
@@ -28,16 +28,17 @@ def access_hr():
     driver.get("http://" + domain_hr + "/login")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.NAME, "gw_id")))
     userID = driver.find_element_by_name("gw_id")
-    userID.send_keys("ngocmy")
+    userID.send_keys("automationtest")
     print("- Input user ID")
     password = driver.find_element_by_name("gw_pass")
-    password.send_keys("123456a!")
+    password.send_keys("automationtest1!")
     print("- Input user password")
     driver.find_element_by_xpath(data["TIMECARD"]["sign_in"]).click()
     print("- Click button Sign in")
     Waits.Wait10s_ElementLoaded(data["TIMECARD"]["notify"][0])
     print("=> Log in successfully")
     time.sleep(2)
+    driver.refresh()
 
 def co_manage():
     Logging("=================================================NEW CO-MANAGE =======================================================")
@@ -419,11 +420,12 @@ def update_date():
     driver.find_element_by_xpath(data["COMANAGE"]["start_date1"]).click()
     Logging("- Start date")
     time.sleep(2)
-    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@class='react-datepicker__week']//div[contains(., '16')]"))).click()
+    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@class='react-datepicker__week']//div[@aria-disabled='false'][1]"))).click()
     Logging("- Select start date")
+    time.sleep(2)
     driver.find_element_by_xpath(data["COMANAGE"]["end_date1"]).click()
     Logging("- End date")
-    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@class='react-datepicker__week']//div[contains(., '19')]"))).click()
+    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@class='react-datepicker__week']//div[@aria-disabled='false'][2]"))).click()
     Logging("- Select end date")
 
 def update_description():
